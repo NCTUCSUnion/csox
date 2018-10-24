@@ -1,10 +1,11 @@
 import React from 'react'
-import './style.scss'
+import injectSheet from 'react-jss'
+import style from './style'
 
-const Footer = () => (
-  <div className='footer'>
+const Footer = ({classes}) => (
+  <div className={classes.footer}>
     資工系09系學會 &copy; 2018
   </div>
 )
 
-export default Footer
+export default injectSheet(style)(Footer)
