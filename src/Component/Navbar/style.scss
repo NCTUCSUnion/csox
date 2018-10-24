@@ -1,0 +1,45 @@
+
+$nav-color:  #fff;
+$nav-height: 65px;
+$theme-color: #5bc8a5;
+
+@mixin center-center($height) {
+    height: $height;
+    line-height: $height;
+    text-align: center;
+}
+
+.nav-navbar{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    background-color: $nav-color;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.16);
+    @include center-center($nav-height);
+    .nav-banner{
+        position: relative;
+        left: 0;
+        width: 250px;
+        height: inherit;
+        font-size: 22px;
+        font-weight: 500;
+        user-select: none;
+        &::before{
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 25px;
+            position: relative;
+            top: 5px;
+            margin-right: 8px;
+            background-color: $theme-color;
+        }
+    }
+    .nav-item{
+        position: absolute;
+        top: 0;
+        right: 50px;
+        @include center-center($nav-height);
+    }
+}
