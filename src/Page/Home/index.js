@@ -1,19 +1,17 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-import './style.scss'
+import injectSheet from 'react-jss'
+import style from './style'
 
-const ClientID = 'nJKYpqovYAVBFrAHTeCSOzkIJFhXYqBQifYWEJFg'
-
-const Home = withRouter((props) => (
+const Home = ({classes}) => (
   <div>
-    <div className='title'>
-      <h1 className='en'>past exam papers</h1>
-      <h1 className='zh'>交大資工系考古題系統</h1>
+    <div className={classes.title}>
+      <h1 className={classes.en}>past exam papers</h1>
+      <h1 className={classes.zh}>交大資工系考古題系統</h1>
     </div>
-    <div className='login-btn'onClick={() => (window.location.href = `https://id.nctu.edu.tw/o/authorize/?client_id=${ClientID}&response_type=code&scope=profile%20name`)}>
+    <div className={classes.login}>
       登入
     </div>
   </div>
-))
+)
 
-export default Home
+export default injectSheet(style)(Home)

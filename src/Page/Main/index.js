@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
-import Aside from '../../Component/Aside'
-import './style.scss'
+import Drawer from '../../Component/Drawer'
+import injectSheet from 'react-jss'
+import style from './style'
 
 let baseURL = 'http://localhost:8080/_api'
 
@@ -72,10 +73,11 @@ class Main extends React.Component {
   }
 
   render () {
+    const {classes} = this.props
     return (
       <React.Fragment>
-        <Aside data={allCos} update={this.updateData} select={this.updateSelect} select_id={this.state.select_id} />
-        <div className='main'>
+        <Drawer data={allCos} update={this.updateData} select={this.updateSelect} selectID={this.state.select_id} />
+        <div className={classes.container}>
           <table>
             <tbody>
               <tr>
@@ -103,4 +105,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+export default injectSheet(style)(Main)

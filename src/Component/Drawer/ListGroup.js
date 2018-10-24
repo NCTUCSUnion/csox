@@ -1,5 +1,8 @@
 import React from 'react'
+import injectSheet from 'react-jss'
+import classNames from 'classnames'
 import axios from 'axios'
+import style from './style'
 
 let baseURL = 'http://localhost:8080/_api'
 
@@ -29,34 +32,23 @@ class ListGroup extends React.Component {
   }
 
   render () {
+    const {label, list, selectID, classes} = this.props
     return (
       <React.Fragment>
-        <div className='label' onClick={this.toggle}>
-          {this.props.label}
+        <div className={classes.label} onClick={this.toggle}>
+          {label}
         </div>
-        {this.state.toggle && this.props.list.map(
-          (cos, index) => (<div className={`list ${this.props.select_id === cos.id && 'active'}`} key={index} onClick={() => this.getList(cos.id)}>{cos.zh}</div>)
+        {this.state.toggle && list.map(
+          (cos, index) => (
+            <div className={classNames(classes.list, selectID === cos.id && 'active')}
+              key={index}
+              onClick={() => this.getList(cos.id)}>{cos.zh}
+            </div>
+          )
         )}
       </React.Fragment>
     )
   }
 }
 
-const Aside = (props) => (
-  <div className='aside'>
-    {props.data.map(
-      (value, index) => (
-        <ListGroup
-          label={value.type}
-          list={value.course}
-          key={index}
-          update={props.update}
-          select={props.select}
-          select_id={props.select_id}
-        />
-      )
-    )}
-  </div>
-)
-
-export default Aside
+export default injectSheet(style)(ListGroup)
