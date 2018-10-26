@@ -1,10 +1,9 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import classNames from 'classnames'
-import axios from 'axios'
+import {connect} from 'react-redux'
+import {fetchExam} from '../../Redux/Action/exam'
 import style from './style'
-
-let baseURL = 'http://localhost:8080/_api'
 
 class ListGroup extends React.Component {
   constructor (props) {
@@ -13,26 +12,14 @@ class ListGroup extends React.Component {
       toggle: false
     }
     this.toggle = this.toggle.bind(this)
-    this.getList = this.getList.bind(this)
   }
 
   toggle () {
     this.setState({toggle: !this.state.toggle})
   }
 
-  getList (id) {
-    this.props.select(id)
-    axios.get(`${baseURL}/exam?id=${id}`).then(
-      res => res.data
-    ).then(
-      res => {
-        this.props.update(res)
-      }
-    )
-  }
-
   render () {
-    const {label, list, selectID, classes} = this.props
+    const {label, list, selectID, classes,fetchExam} = this.props
     return (
       <React.Fragment>
         <div className={classes.label} onClick={this.toggle}>
@@ -40,9 +27,11 @@ class ListGroup extends React.Component {
         </div>
         {this.state.toggle && list.map(
           (cos, index) => (
-            <div className={classNames(classes.list, selectID === cos.id && 'active')}
-              key={index}
-              onClick={() => this.getList(cos.id)}>{cos.zh}
+            <div 
+              key={index} 
+              className={classNames(classes.list, selectID === cos.id && 'active')} 
+              onClick={() => fetchExam(cos.id)}>
+              {cos.zh}
             </div>
           )
         )}
@@ -51,4 +40,8 @@ class ListGroup extends React.Component {
   }
 }
 
-export default injectSheet(style)(ListGroup)
+const mapDispatch2Prop = dispatch => ({
+  fetchExam: (id) => dispatch(fetchExam(id))
+})
+
+export default connect(null,mapDispatch2Prop)(injectSheet(style)(ListGroup))

@@ -1,17 +1,18 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import {withRouter} from 'react-router-dom'
 import style from './style'
 
-const Home = ({classes}) => (
+const Home = ({history, classes}) => (
   <div>
     <div className={classes.title}>
       <h1 className={classes.en}>past exam papers</h1>
       <h1 className={classes.zh}>交大資工系考古題系統</h1>
     </div>
-    <div className={classes.login}>
+    <div className={classes.login} onClick={() => history.push('/main')}>
       登入
     </div>
   </div>
 )
 
-export default injectSheet(style)(Home)
+export default withRouter(injectSheet(style)(Home))

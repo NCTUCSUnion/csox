@@ -30,9 +30,11 @@ const style = theme => ({
         '&:not(:first-child)': {
           borderTop: '1px solid rgba(91, 200, 165, .5)',
           cursor: 'pointer',
+          transition: '.2s',
           '&:hover': {
             backgroundColor: 'rgba(91, 200, 165,1)',
-            color: '#fff'
+            color: '#fff',
+            transition: '.2s'
           }
         }
       },
