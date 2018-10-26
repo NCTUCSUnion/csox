@@ -8,6 +8,7 @@
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-dropzone": "^6.2.4",
     "react-jss": "^8.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

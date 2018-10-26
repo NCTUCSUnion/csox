@@ -8,23 +8,23 @@ class Main extends React.Component {
   // componentDidUpdate () {
   //   window.scrollTo(0, 0)
   // }
-  componentDidMount(){
+  componentDidMount () {
     this.props.dispatch(fetchCourse())
   }
   render () {
-    const {allCourse,chooseCourse,exam}  = this.props
+    const {allCourse, chooseCourse, exam} = this.props
     return (
       <React.Fragment>
         <Drawer data={allCourse} selectID={chooseCourse} />
-        <Table data={exam}/>
+        <Table data={exam} />
       </React.Fragment>
     )
   }
 }
 
 const mapState2Prop = state => {
-  const {allCourse,chooseCourse,exam} = state.main
-  return {allCourse,chooseCourse,exam}
+  const {allCourse, chooseCourse, exam} = state.main
+  return {allCourse, chooseCourse, exam}
 }
 
 export default connect(mapState2Prop)(Main)

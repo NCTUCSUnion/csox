@@ -11,7 +11,6 @@ const Router = () => (
     <React.Fragment>
       {/* Navbar */}
       <Route path='/main' component={Navbar} />
-      <Route path='/upload' component={Navbar} />
       {/* Footer */}
       <Route path='/' component={Footer} />
       <Switch>

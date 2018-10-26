@@ -1,5 +1,5 @@
 const initialState = {
-  allCourse :[
+  allCourse: [
     {
       type: '大一',
       course: []
@@ -39,16 +39,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   const {course, id, exam} = action
-  switch(action.type){
-    case 'RECEIVE_COURSE': 
+  switch (action.type) {
+    case 'RECEIVE_COURSE':
       let updatedCourse = state.allCourse
       course.forEach(course =>
         updatedCourse[course.type - 1].course
-        .push({
-          id: course.id,
-          zh: course.zh,
-          en: course.en
-        })
+          .push({
+            id: course.id,
+            zh: course.zh,
+            en: course.en
+          })
       )
       return {
         ...state,
