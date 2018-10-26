@@ -14,13 +14,10 @@ const Router = () => (
       <Route path='/upload' component={Navbar} />
       {/* Footer */}
       <Route path='/' component={Footer} />
-
-      <div className='content'>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/main' component={Main} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/main' component={Main} />
+      </Switch>
     </React.Fragment>
   </BrowserRouter>
 )

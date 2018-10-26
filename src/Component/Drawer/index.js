@@ -4,7 +4,7 @@ import injectSheet from 'react-jss'
 import style from './style'
 import ListGroup from './ListGroup'
 
-const Drawer = ({classes, data, update, select, selectID}) => (
+const Drawer = ({classes, data, selectID}) => (
   <div className={classes.drawer}>
     {data.map(
       (value, index) => (
@@ -12,8 +12,6 @@ const Drawer = ({classes, data, update, select, selectID}) => (
           label={value.type}
           list={value.course}
           key={index}
-          update={update}
-          select={select}
           selectID={selectID}
         />
       )
