@@ -4,7 +4,7 @@ import injectSheet from 'react-jss'
 import style from './style'
 
 import {ModalWrapper, modal} from '../Modal'
-import UploadModal from './uploadModal'
+import UploadModal from '../Upload'
 
 // const NavItem = withRouter(injectSheet(style)(({link, name, location, classes}) => (
 //   <Link to={link}
@@ -14,7 +14,7 @@ import UploadModal from './uploadModal'
 // )))
 
 const Banner = withRouter(injectSheet(style)(({history, classes}) => (
-  <div className={classes.banner} onClick={() => history.push('/main')}>交大資工考古題系統</div>
+  <div className={classes.banner} onClick={() => history.push('/')}>交大資工考古題系統</div>
 )))
 
 const Navbar = injectSheet(style)(({classes}) => (
