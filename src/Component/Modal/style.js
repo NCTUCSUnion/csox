@@ -26,7 +26,7 @@ const style = {
     zIndex: '1080',
     boxShadow: '0 16px 24px 2px rgba(0, 0, 0, 0.14)', /* youtube box-shadow setting */
     animation: 'fadeInUp .2s ease-in-out',
-    borderRadius: 6,
+    // borderRadius: 6,
     minHeight: '50vh'
   },
   'dialog': {
@@ -36,7 +36,8 @@ const style = {
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
-    minHeight: 'calc(100% - (0.5rem * 2))'
+    minHeight: 'calc(100% - (0.5rem * 2))',
+    overflowY: 'auto'
   },
   // end of CSS in bootstrap's modal
   '@keyframes fadeInUp': {
