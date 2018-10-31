@@ -2,6 +2,8 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import style from './style'
 
+import {ToastWrapper, toast} from '../Toast'
+
 class Table extends React.Component {
   constructor (props) {
     super(props)
@@ -13,6 +15,7 @@ class Table extends React.Component {
     const {data, classes} = this.props
     return (
       <div className={classes.container}>
+        <ToastWrapper />
         {data.length > 0
           ? (
             <table>
@@ -25,7 +28,7 @@ class Table extends React.Component {
                 </tr>
                 {
                   data.map(e =>
-                    <tr key={e.id}>
+                    <tr key={e.id} onClick={() => { toast(`已下載 ${e.filename}`) }}>
                       <td>{e.semester}</td>
                       <td>{e.type}</td>
                       <td>{e.filename}</td>
