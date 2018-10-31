@@ -11,14 +11,6 @@ const style = theme => ({
       color: 'inherit'
     },
 
-    input: {
-      border: '0.5px solid #ccc',
-      borderRadius: 4,
-      padding: '15px 40px',
-      textAlign: 'center',
-      fontSize: 16
-    },
-
     table: {
       width: '95%',
       margin: '0 auto',

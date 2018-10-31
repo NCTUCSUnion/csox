@@ -20,6 +20,7 @@ const style = theme => ({
     fontSize: 22,
     fontWeight: 500,
     userSelect: 'none',
+    cursor: 'pointer',
     '&::before': {
       content: '""',
       display: 'inline-block',
@@ -37,7 +38,8 @@ const style = theme => ({
     right: '50px',
     height: navHeight,
     lineHeight: navHeight + 'px',
-    textAlign: 'center'
+    textAlign: 'center',
+    cursor: 'pointer'
   }
 })
 

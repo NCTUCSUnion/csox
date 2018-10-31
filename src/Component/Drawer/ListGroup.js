@@ -19,7 +19,7 @@ class ListGroup extends React.Component {
   }
 
   render () {
-    const {label, list, selectID, classes,fetchExam} = this.props
+    const {label, list, selectID, classes, fetchExam} = this.props
     return (
       <React.Fragment>
         <div className={classes.label} onClick={this.toggle}>
@@ -27,9 +27,9 @@ class ListGroup extends React.Component {
         </div>
         {this.state.toggle && list.map(
           (cos, index) => (
-            <div 
-              key={index} 
-              className={classNames(classes.list, selectID === cos.id && 'active')} 
+            <div
+              key={index}
+              className={classNames(classes.list, selectID === cos.id && 'active')}
               onClick={() => fetchExam(cos.id)}>
               {cos.zh}
             </div>
@@ -44,4 +44,4 @@ const mapDispatch2Prop = dispatch => ({
   fetchExam: (id) => dispatch(fetchExam(id))
 })
 
-export default connect(null,mapDispatch2Prop)(injectSheet(style)(ListGroup))
+export default connect(null, mapDispatch2Prop)(injectSheet(style)(ListGroup))
