@@ -31,8 +31,7 @@ const style = theme => ({
         }
       },
       '& td, & th': {
-        padding: '20px 30px',
-        borderRadius: 2
+        padding: '20px 30px'
       },
       '& th': {
         fontWeight: 'bold',

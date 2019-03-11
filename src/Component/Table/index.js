@@ -2,7 +2,8 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import style from './style'
 
-import {ToastWrapper, toast} from '../Toast'
+import { ToastWrapper } from '../Toast'
+import { download } from '../../Redux/Action/exam'
 
 class Table extends React.Component {
   constructor (props) {
@@ -28,7 +29,7 @@ class Table extends React.Component {
                 </tr>
                 {
                   data.map(e =>
-                    <tr key={e.id} onClick={() => { toast(`已下載 ${e.filename}`) }}>
+                    <tr key={e.id} onClick={() => download(e)}>
                       <td>{e.semester}</td>
                       <td>{e.type}</td>
                       <td>{e.filename}</td>

@@ -8,29 +8,35 @@ import style from './style'
 class ListGroup extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      toggle: false
-    }
     this.toggle = this.toggle.bind(this)
   }
 
-  toggle () {
-    this.setState({toggle: !this.state.toggle})
+  toggle (type) {
+    this.props.toggle(type)
   }
 
   render () {
-    const {label, list, selectID, classes, fetchExam} = this.props
+    const {
+      toggles,
+      chaos,
+      type,
+      order,
+      label,
+      list,
+      selectID,
+      classes,
+      fetchExam } = this.props
     return (
       <React.Fragment>
-        <div className={classes.label} onClick={this.toggle}>
+        <div className={classes.label} onClick={() => this.toggle(order)}>
           {label}
         </div>
-        {this.state.toggle && list.map(
+        {toggles[order] && (chaos || type === order) && list.map(
           (cos, index) => (
             <div
               key={index}
               className={classNames(classes.list, selectID === cos.id && 'active')}
-              onClick={() => fetchExam(cos.id)}>
+              onClick={() => fetchExam(cos)}>
               {cos.zh}
             </div>
           )
@@ -40,8 +46,16 @@ class ListGroup extends React.Component {
   }
 }
 
-const mapDispatch2Prop = dispatch => ({
-  fetchExam: (id) => dispatch(fetchExam(id))
+const mapState2Prop = state => ({
+  toggles: state.main.toggles,
+  type: state.main.chooseType,
+  selectID: state.main.chooseCourse,
+  chaos: state.main.chaos
 })
 
-export default connect(null, mapDispatch2Prop)(injectSheet(style)(ListGroup))
+const mapDispatch2Prop = dispatch => ({
+  fetchExam: (id) => dispatch(fetchExam(id)),
+  toggle: (type) => dispatch({type: 'TOGGLE', category: type})
+})
+
+export default connect(mapState2Prop, mapDispatch2Prop)(injectSheet(style)(ListGroup))

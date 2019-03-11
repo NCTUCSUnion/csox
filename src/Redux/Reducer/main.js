@@ -33,18 +33,23 @@ const initialState = {
       course: []
     }
   ],
+  toggles: [false, false, false, false, false, false, false, false],
+  chooseType: null,
   chooseCourse: null,
-  exam: []
+  exam: [],
+  chaos: true
 }
 
 export default (state = initialState, action) => {
-  const {course, id, exam} = action
+  const {course, category, id, exam} = action
+  let tmp
   switch (action.type) {
     case 'RECEIVE_COURSE':
       let updatedCourse = state.allCourse
       course.forEach(course =>
         updatedCourse[course.type - 1].course
           .push({
+            type: course.type - 1,
             id: course.id,
             zh: course.zh,
             en: course.en
@@ -55,14 +60,27 @@ export default (state = initialState, action) => {
         allCourse: updatedCourse
       }
     case 'CHOOSE_COURSE':
+      tmp = [false, false, false, false, false, false, false, false]
+      tmp[category] = true
       return {
         ...state,
-        chooseCourse: id
+        chooseType: category,
+        chooseCourse: id,
+        chaos: false,
+        toggles: [...tmp]
       }
     case 'RECEIVE_EXAM':
       return {
         ...state,
         exam: [...exam]
+      }
+    case 'TOGGLE':
+      tmp = state.toggles
+      tmp[category] = !tmp[category]
+      return {
+        ...state,
+        chaos: true,
+        toggles: [...tmp]
       }
     default:
       return state

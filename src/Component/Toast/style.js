@@ -1,5 +1,5 @@
-const success = ['#28a745', '#d8f6df']
-const info = ['#17a2b8', '#d4f5fa']
+const success = ['rgba(91, 200, 165,1)', '#fff']
+const info = ['#17a2b8', '#fff']
 const warning = ['#ffc107', '#fff']
 const danger = ['#dc3545', '#fff']
 

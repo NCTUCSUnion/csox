@@ -38,9 +38,12 @@ const style = theme => ({
     '&:hover': {
       backgroundColor: 'rgba(0, 0, 0, 0.08)'
     },
-    '& .active': {
+    '&.active': {
       color: theme.colorPrimary,
-      fontWeight: 400
+      font: {
+        size: 15,
+        weight: 400
+      }
     }
   }
 })
