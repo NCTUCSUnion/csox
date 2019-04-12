@@ -9,7 +9,7 @@ const Home = ({history, classes}) => (
       <h1 className={classes.en}>past exam papers</h1>
       <h1 className={classes.zh}>交大資工系考古題系統</h1>
     </div>
-    <div className={classes.login} onClick={() => history.push('/main')}>
+    <div className={classes.login} onClick={() => { window.location.href = ('https://csunion.nctu.me/_api/oldexam/login')}} >
       登入
     </div>
   </div>

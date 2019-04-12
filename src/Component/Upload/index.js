@@ -6,6 +6,8 @@ import injectSheet from 'react-jss'
 import style from './style'
 import axios from 'axios'
 
+const baseURL = 'https://csunion.nctu.me/_api/oldexam'
+
 class uploadModal extends React.Component {
   constructor (props) {
     super(props)
@@ -33,7 +35,6 @@ class uploadModal extends React.Component {
       })
       this.setState({seq: seq, files: updatedFiles})
     }
-    // axios.post()
   }
   handleDel (e, id) {
     let updatedFiles = this.state.files
@@ -49,16 +50,21 @@ class uploadModal extends React.Component {
       }
       axios.get(preview, config)
         .then(res => res.data)
-        .then(blob => {
-        // const reader = new FileReader();
-        // reader.readAsDataURL(blob)
-        // reader.onload = (event) => {console.log(event.target.result)}
-        // return reader.result
-          file = new File([blob], name)
-          console.log(file)
-        })
-        .catch(err => console.log(err))
-    })
+        .then(
+          file => {
+            let data = new FormData()
+            data.append('file', file)
+            data.append('filename', name)
+            const options = {
+              method: 'POST',
+              headers: { 'content-type': 'multipart/form-data' },
+              data: data,
+              url: `${baseURL}/upload`
+            }
+            axios(options)
+          }
+        )
+        .catch(err => console.log(err))})
   }
   render () {
     const {classes} = this.props
@@ -71,16 +77,16 @@ class uploadModal extends React.Component {
             <i className='fas fa-cloud-upload-alt' />&nbsp;上傳
           </div>
         </div>
-        <form action=''>
-          <Input label='年份' />
-          <Input label='類型' />
-        </form>
-        <Dropzone
+        <form>
+          <Input label='年份'/>
+          <Input label='類型'/>
+          <Dropzone
           accept='image/*,application/*'
           onDrop={this.handleDrop}
           className={classNames(classes.upload, files.length > 1 && 'active')}
           activeClassName={classes.activeUpload}
           rejectClassName={classes.rejectUpload}
+          multiple={false}
           // disabledClassName={classes.disabledUpload}
           maxSize={10 * 1000 * 1000} // maxsize is 10MB
         >
@@ -110,7 +116,7 @@ class uploadModal extends React.Component {
           }
 
         </Dropzone>
-
+        </form>
       </div>
     )
   }

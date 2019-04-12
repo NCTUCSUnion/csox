@@ -34,9 +34,5 @@ export const fetchExam = (cos) => (dispatch) => {
 
 export const download = (e) => {
   toast(`已下載 ${e.filename}`)
-  axios.get(`${baseURL}/download?id=${e.id}`).then(
-    res => res.data
-  ).catch(
-    err => console.error(err)
-  )
+  window.open(`${baseURL}/download?eid=${e.id}&fn=${e.filename}`)
 }
