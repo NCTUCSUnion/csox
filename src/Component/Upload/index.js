@@ -72,8 +72,10 @@ class uploadModal extends React.Component {
           </div>
         </div>
         <form action=''>
-          <Input label='年份' />
-          <Input label='類型' />
+          <Input label='西元年份' autoComplete={false}/>
+          <Input label='類型' autoComplete={['期中考','期末考','小考']}/>
+          <Input label='課名' autoComplete={['線性代數','資料庫概論','計算機網路概論']}/>
+          <Input label='老師' autoComplete={['彭文孝','彭文志','曾建超']}/>
         </form>
         <Dropzone
           accept='image/*,application/*'
