@@ -35,6 +35,7 @@ const style = theme => ({
     transition: '.2s',
     overflowY: 'auto',
     maxHeight: '50vh',
+    cursor: 'pointer',
     '&.active': {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr'
