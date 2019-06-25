@@ -14,6 +14,8 @@ const style = theme => ({
     fontSize: 18,
     lineHeight: '18px',
     borderBottom: '1px solid #757575',
+    zIndex: 1081,
+    background: 'transparent',
     '&:valid': {
       borderBottom: `1px solid ${theme.colorPrimary}`
     },
@@ -38,6 +40,24 @@ const style = theme => ({
     fontSize: 18,
     lineHeight: '18px',
     fontWeight: 500
+  },
+  autoComplete: {
+    position: 'absolute',
+    zIndex: 1082,
+    width: 'calc(100% - 20px)',
+    background: 'white',
+    boxShadow: '1px 1px 2px rgba(0,0,0,.3)'
+  },
+  autoCompleteItem:{
+    zIndex: 1081,
+    lineHeight: '3rem',
+    cursor: 'pointer',
+    '&:hover':{
+      background: '#eee'
+    },
+    '&.active':{
+      background: '#eee'
+    }
   }
 })
 
