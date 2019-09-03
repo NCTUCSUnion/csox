@@ -16,6 +16,10 @@ const style = {
       left: 0,
       width: '100vw'
     }
+  },
+  fixedHeader:{
+    position: 'fixed',
+    top: 0
   }
 }
 

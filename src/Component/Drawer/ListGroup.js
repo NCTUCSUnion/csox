@@ -29,7 +29,8 @@ class ListGroup extends React.Component {
     return (
       <React.Fragment>
         <div className={classes.label} onClick={() => this.toggle(order)}>
-          {label}
+        <i className={classNames('fas',(toggles[order] && (chaos || type === order)) ?'fa-caret-down':'fa-caret-right')}/>
+        &nbsp;{label}
         </div>
         {toggles[order] && (chaos || type === order) && list.map(
           (cos, index) => (

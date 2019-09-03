@@ -4,6 +4,7 @@ import style from './style'
 
 import { ToastWrapper } from '../Toast'
 import { download } from '../../Redux/Action/exam'
+import Header from './header'
 
 class Table extends React.Component {
   constructor (props) {
@@ -11,22 +12,18 @@ class Table extends React.Component {
     this.state = {
       message: '點選左方課程尋找考古題'
     }
+    this.ref = React.createRef()
   }
   render () {
     const {data, classes} = this.props
     return (
-      <div className={classes.container}>
+      <div className={classes.container} ref={this.ref}>
         <ToastWrapper />
         {data.length > 0
           ? (
             <table>
+              <Header table={this.ref}/>
               <tbody>
-                <tr>
-                  <th>年份</th>
-                  <th>類型</th>
-                  <th>檔名</th>
-                  <th>提供者</th>
-                </tr>
                 {
                   data.map(e =>
                     <tr key={e.id} onClick={() => download(e)}>
