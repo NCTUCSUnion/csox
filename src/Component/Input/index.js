@@ -5,13 +5,14 @@ import style from './style'
 
 const keyCode = {
   'ESC': 27,
-  'UP': 40,
-  'DOWN': 38,
+  'UP': 38,
+  'DOWN': 40,
   'ENTER': 13
 }
 
 class Input extends React.Component{
   ref = -1
+  listRef = React.createRef(null);
   constructor(props){
     super(props)
     this.state = {
@@ -24,9 +25,15 @@ class Input extends React.Component{
     this.handleClose = this.handleClose.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
+
+  scrollYTo(y = 0){
+    this.listRef.current.scrollTo(0, y);
+  }
+
   keyDownSelect(e){
-    const mod = (x, n) => (x % n + n) % n
+    const mod = (x, n) => (x + n) % n
     if(e.keyCode === keyCode.ESC){
+      e.stopPropagation()
       this.handleClose()
       return
     }
@@ -36,24 +43,38 @@ class Input extends React.Component{
       return
     }
     else if(e.keyCode === keyCode.UP){
+      if(this.state.autoComplete.length === 0){
+        return;
+      }
       e.preventDefault()
-      if(this.ref === -1)
-          this.ref = 0 // first select
-      else
-        this.ref = mod(this.ref + 1, this.state.autoComplete.length)
+      if(this.ref === -1){
+        this.ref = this.state.autoComplete.length - 1 // first select
+        this.scrollYTo(this.ref * 60)
+      }
+      else {
+        this.ref = mod(this.ref - 1, this.state.autoComplete.length)
+        this.scrollYTo(this.ref * 60)
+      }
       this.setState({value: this.state.autoComplete[this.ref]})
     }
     else if(e.keyCode === keyCode.DOWN){
+      if(this.state.autoComplete.length === 0){
+        return;
+      }
       e.preventDefault()
-      if(this.ref === -1)
-        this.ref = this.state.autoComplete.length - 1
-      else
-        this.ref = mod(this.ref - 1, this.state.autoComplete.length)
+      if(this.ref === -1){
+        this.ref = 0
+        this.scrollYTo(0)
+      }
+      else{
+        this.ref = mod(this.ref + 1, this.state.autoComplete.length)
+        this.scrollYTo(Math.floor(this.ref / 3) * 180)
+      }
       this.setState({value: this.state.autoComplete[this.ref]})
     }
   }
   handleOpen(){
-    let updatedList = this.state.autoComplete && this.state.autoComplete.slice(0,3)
+    let updatedList = this.state.autoComplete
     this.setState({
       open: true,
       autoComplete: updatedList
@@ -78,19 +99,20 @@ class Input extends React.Component{
   }
   render(){
     const {classes, label, autoComplete} = this.props
+    const { open } = this.state
     return(
       <div className={classes.container}>
-        <input type='text' required 
-          className={classes.input} 
-          onFocus={this.handleOpen} 
-          onBlur={this.handleClose} 
-          value={this.state.value} 
+        <input type='text' required
+          className={classes.input}
+          onFocus={this.handleOpen}
+          onBlur={this.handleClose}
+          value={this.state.value}
           onChange={(e)=>{this.handleInput(e.target.value)}}
         />
         <label className={classes.label}>{label}</label>
-        {autoComplete && this.state.open &&
-          (<div className={classes.autoComplete}>
-            {this.state.autoComplete.map((value,i) => 
+        {autoComplete &&
+          (<div ref={this.listRef} className={classes.autoComplete} style={{display: open ? 'block' : 'none'}}>
+            {this.state.autoComplete.map((value,i) =>
                 <div
                   key={i}
                   className={classNames(classes.autoCompleteItem,this.ref === i && 'active')}

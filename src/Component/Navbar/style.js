@@ -35,7 +35,7 @@ const style = theme => ({
   navItem: {
     position: 'absolute',
     top: '0',
-    right: '50px',
+    right: 20,
     height: navHeight,
     lineHeight: navHeight + 'px',
     textAlign: 'center',

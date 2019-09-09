@@ -8,8 +8,11 @@ import reducer from './Redux/Reducer'
 import injectSheet, {ThemeProvider} from 'react-jss'
 import theme from './Theme/default'
 import style from './Theme/globalStyle'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware))
+const store = createStore(reducer, composeWithDevTools(
+  applyMiddleware(thunkMiddleware)
+))
 
 const App = injectSheet(style)(() => (
   <Router />

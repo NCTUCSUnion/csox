@@ -21,6 +21,24 @@ export const fetchCourse = () => (dispatch) => {
   }
 }
 
+export const fetchTeacher = () => (dispatch) => {
+  dispatch({type: 'FETCH_TEACHER'})
+  if (storage.hasOwnProperty('teachers')) {
+    dispatch({type: 'RECEIVE_TEACHER', teacher: JSON.parse(storage.getItem('teachers'))})
+  } else {
+    axios.get(`${baseURL}/teacher`).then(
+      res => res.data
+    ).then(
+      teacher => {
+        dispatch({type: 'RECEIVE_TEACHER', teacher})
+        storage.setItem('teachers', JSON.stringify(teacher))
+      }
+    ).catch(
+      err => console.error(err)
+    )
+  }
+}
+
 export const fetchExam = (cos) => (dispatch) => {
   dispatch({type: 'CHOOSE_COURSE', category: cos.type, id: cos.id})
   axios.get(`${baseURL}/exam?id=${cos.id}`).then(

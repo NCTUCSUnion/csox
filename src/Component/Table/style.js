@@ -10,7 +10,7 @@ const style = {
     padding: 20,
     transition: '.2s'
   },
-  '@media (max-width: 768px)': {
+  '@media (max-width: 576px)': {
     container: {
       transition: '.2s',
       left: 0,
@@ -20,6 +20,9 @@ const style = {
   fixedHeader:{
     position: 'fixed',
     top: 0
+  },
+  td: {
+    whiteSpace: 'nowrap'
   }
 }
 

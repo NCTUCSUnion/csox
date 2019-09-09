@@ -12,7 +12,7 @@ const style = theme => ({
     fontSize: 14,
     userSelect: 'none'
   },
-  '@media (max-width: 768px)': {
+  '@media (max-width: 576px)': {
     drawer: {
       transition: '.2s',
       left: -220

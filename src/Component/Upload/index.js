@@ -5,6 +5,8 @@ import Dropzone from 'react-dropzone'
 import injectSheet from 'react-jss'
 import style from './style'
 import axios from 'axios'
+import { closeModal } from '../Modal'
+import { connect } from 'react-redux'
 
 const baseURL = 'https://csunion.nctu.me/_api/oldexam'
 
@@ -67,21 +69,24 @@ class uploadModal extends React.Component {
         .catch(err => console.log(err))})
   }
   render () {
-    const {classes} = this.props
+    const {classes, courses, teachers} = this.props
     const {files} = this.state
     return (
       <div>
-        <div className={classes.title}>
-          上傳考古題
-          <div className={classes.action} onClick={this.handleUpload}>
+        <div className={classes.header}>
+          <div className={classNames('fas fa-times', classes.leftAction)} onClick={closeModal} />
+          <span className={classes.title}>
+            上傳考古題
+          </span>
+          <span className={classes.action} onClick={this.handleUpload}>
             <i className='fas fa-cloud-upload-alt' />&nbsp;上傳
-          </div>
+          </span>
         </div>
         <form action=''>
           <Input label='西元年份' autoComplete={false}/>
           <Input label='類型' autoComplete={['期中考','期末考','小考']}/>
-          <Input label='課名' autoComplete={['線性代數','資料庫概論','計算機網路概論']}/>
-          <Input label='老師' autoComplete={['彭文孝','彭文志','曾建超']}/>
+          <Input label='課名' autoComplete={courses}/>
+          <Input label='老師' autoComplete={teachers}/>
         <Dropzone
           accept='image/*,application/*'
           onDrop={this.handleDrop}
@@ -124,4 +129,9 @@ class uploadModal extends React.Component {
   }
 }
 
-export default injectSheet(style)(uploadModal)
+export default connect((state) => {
+  return {
+    courses: state.main.allCourse.map(c => c.zh),
+    teachers: state.main.teachers.map(t => t.name),
+  }
+})(injectSheet(style)(uploadModal))

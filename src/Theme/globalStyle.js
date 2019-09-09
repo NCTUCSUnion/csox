@@ -27,7 +27,7 @@ const style = theme => ({
         }
       },
       '& td, & th': {
-        padding: '20px 30px'
+        padding: '20px 10px'
       },
       '& th': {
         fontWeight: 'bold',
