@@ -16,23 +16,18 @@ const style = theme => ({
       margin: '0 auto',
       textAlign: 'center',
       borderCollapse: 'collapse',
-      '& tr': {
+      '& tbody tr': {
         backgroundColor: '#fff',
         userSelect: 'none',
-        '&:not(:first-child)': {
-          borderTop: '1px solid rgba(91, 200, 165, .5)',
-          cursor: 'pointer',
-          transition: '.2s',
-          '&:hover': {
-            backgroundColor: 'rgba(91, 200, 165,1)',
-            color: '#fff',
-            transition: '.2s'
-          }
+        borderTop: '1px solid rgba(91, 200, 165, .5)',
+        cursor: 'pointer',
+        '&:hover': {
+          backgroundColor: 'rgba(91, 200, 165,1)',
+          color: '#fff'
         }
       },
       '& td, & th': {
-        padding: '20px 30px',
-        borderRadius: 2
+        padding: '20px 10px'
       },
       '& th': {
         fontWeight: 'bold',

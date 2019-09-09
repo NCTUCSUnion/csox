@@ -2,34 +2,60 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import style from './style'
 
+import { download } from '../../Redux/Action/exam'
+import Header from './header'
+
 class Table extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      message: '點選左方課程尋找考古題'
+      message: '點選左方課程尋找考古題',
+      width: window.innerWidth
+    }
+    this.ref = React.createRef()
+    this.onResize = this.onResize.bind(this)
+  }
+
+  onResize() {
+    this.setState({width: window.innerWidth});
+  }
+
+  componentDidMount(){
+    if(this.ref.current){
+      window.addEventListener('resize', this.onResize)
     }
   }
+
+  componentWillUnmount() {
+    if(this.ref.current){
+      window.removeEventListener('resize', this.onResize)
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.ref.current){
+      this.ref.current.scrollTo(0, 0)
+    }
+  }
+
   render () {
     const {data, classes} = this.props
+    const { width } = this.state
+    console.log(width)
     return (
-      <div className={classes.container}>
+      <div className={classes.container} ref={this.ref}>
         {data.length > 0
           ? (
             <table>
+              <Header width={width}/>
               <tbody>
-                <tr>
-                  <th>年份</th>
-                  <th>類型</th>
-                  <th>檔名</th>
-                  <th>提供者</th>
-                </tr>
                 {
                   data.map(e =>
-                    <tr key={e.id}>
-                      <td>{e.semester}</td>
-                      <td>{e.type}</td>
-                      <td>{e.filename}</td>
-                      <td>{e.provider}</td>
+                    <tr key={e.id} onClick={() => download(e)}>
+                      <td className={classes.td}>{e.semester}</td>
+                      <td className={classes.td}>{e.type}</td>
+                      { width >=576  && <td className={classes.td}>{e.filename}</td>}
+                      { width >=976  && <td className={classes.td}>{e.provider}</td>}
                     </tr>
                   )
                 }

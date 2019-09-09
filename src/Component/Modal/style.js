@@ -37,7 +37,13 @@ const style = {
     display: 'flex',
     alignItems: 'center',
     minHeight: 'calc(100% - (0.5rem * 2))',
-    overflowY: 'auto'
+  },
+  '@media (max-width: 576px)': {
+    'dialog': {
+      margin: 0,
+      width: '100%',
+      alignItems: 'stretch'
+    }
   },
   // end of CSS in bootstrap's modal
   '@keyframes fadeInUp': {

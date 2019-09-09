@@ -46,11 +46,15 @@ const style = theme => ({
     zIndex: 1082,
     width: 'calc(100% - 20px)',
     background: 'white',
-    boxShadow: '1px 1px 2px rgba(0,0,0,.3)'
+    boxShadow: '1px 1px 2px rgba(0,0,0,.3)',
+    maxHeight: 180,
+    overflowY: 'auto',
+
   },
   autoCompleteItem:{
     zIndex: 1081,
-    lineHeight: '3rem',
+    height: 60,
+    lineHeight: '60px',
     cursor: 'pointer',
     '&:hover':{
       background: '#eee'

@@ -1,15 +1,41 @@
 const style = theme => ({
+  header: {
+    height: 'initial',
+    textAlign: 'left',
+    padding: '0 10px',
+    fontWeight: 500,
+    background: theme.colorPrimary,
+    // borderRadius: '5px 5px 0 0',
+    font: {
+      size: 18,
+      weight: 400
+    },
+    color: 'white',
+    margin: '0 0 20px 0',
+    boxShadow: theme.shadow
+  },
   title: {
     height: 'initial',
     textAlign: 'left',
     padding: '0 20px',
     fontWeight: 500,
-    background: theme.colorPrimary,
     // borderRadius: '5px 5px 0 0',
     color: 'white',
-    margin: '0 0 20px 0',
     fontSize: 20,
-    boxShadow: theme.shadow
+  },
+  leftAction: {
+    display: 'inline-block',
+    height: 20,
+    width: 20,
+    textAlign: 'center',
+    lineHeight: '20px',
+    padding: 5,
+    borderRadius: 20,
+    '&:hover': {
+      transition: '.2s',
+      cursor: 'pointer',
+      backgroundColor: theme.colorDarkenPrimary
+    }
   },
   action: {
     position: 'absolute',
@@ -17,10 +43,6 @@ const style = theme => ({
     padding: '0 2%',
     top: 0,
     right: '5%',
-    font: {
-      size: 18,
-      weight: 400
-    },
     '&:hover': {
       transition: '.2s',
       cursor: 'pointer',

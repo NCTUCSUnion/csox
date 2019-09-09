@@ -12,7 +12,7 @@ const style = theme => ({
     fontSize: 14,
     userSelect: 'none'
   },
-  '@media (max-width: 768px)': {
+  '@media (max-width: 576px)': {
     drawer: {
       transition: '.2s',
       left: -220
@@ -38,9 +38,12 @@ const style = theme => ({
     '&:hover': {
       backgroundColor: 'rgba(0, 0, 0, 0.08)'
     },
-    '& .active': {
+    '&.active': {
       color: theme.colorPrimary,
-      fontWeight: 400
+      font: {
+        size: 15,
+        weight: 400
+      }
     }
   }
 })

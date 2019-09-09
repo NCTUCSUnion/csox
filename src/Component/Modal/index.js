@@ -79,6 +79,10 @@ const modal = (content) => {
   getter.func[0](content)
 }
 
+const closeModal = () => {
+  getter.func[1]();
+}
+
 const StyledModalWrapper = injectSheet(style)(ModalWrapper)
 
-export { StyledModalWrapper as ModalWrapper, StyledModal as Modal, modal }
+export { StyledModalWrapper as ModalWrapper, StyledModal as Modal, modal, closeModal }
