@@ -41,13 +41,12 @@ class Table extends React.Component {
   render () {
     const {data, classes} = this.props
     const { width } = this.state
-    console.log(width)
     return (
       <div className={classes.container} ref={this.ref}>
         {data.length > 0
           ? (
             <table>
-              <Header width={width}/>
+              <Header className={classes.fixedHeader} width={width}/>
               <tbody>
                 {
                   data.map(e =>

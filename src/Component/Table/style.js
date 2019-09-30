@@ -18,8 +18,8 @@ const style = {
     }
   },
   fixedHeader:{
-    position: 'fixed',
-    top: 0
+    position: 'sticky',
+    top: 65
   },
   td: {
     whiteSpace: 'nowrap'

@@ -2,6 +2,7 @@
 const initialState = {
   loading: false,
   id: '',
+  email: '',
   available: false
 }
 
@@ -21,6 +22,7 @@ export default (state = initialState, action) => {
     case 'PLEASE_COME_IN':
       return {
         id: action.id,
+        email: action.email,
         available: true,
         loading: false
       }

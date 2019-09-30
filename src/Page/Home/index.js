@@ -4,12 +4,12 @@ import {withRouter} from 'react-router-dom'
 import style from './style'
 import { toast, ToastWrapper } from '../../Component/Toast'
 
-const Home = ({location, classes, isRedirect = false}) => {
+const Home = ({location, classes, isRedirect}) => {
   useEffect(() => {
     if(location.state){
       toast('請先登入', {type: 'Info'})
     }
-    else if(isRedirect){
+    else if(isRedirect === false){
       toast('登入失敗', {type: 'Danger'})
     }
   })
