@@ -38,6 +38,9 @@ class Input extends React.Component{
       return
     }
     else if(e.keyCode === keyCode.ENTER){
+      if(this.props.onChange){
+        this.props.onChange(e.target.value)
+      }
       this.handleClose()
       e.target.blur()
       return
@@ -88,6 +91,9 @@ class Input extends React.Component{
     })
   }
   handleInput(v){
+    if(this.props.onChange){
+      this.props.onChange(v)
+    }
     if(this.props.autoComplete){
       let updatedList = this.props.autoComplete.filter(e => e.startsWith(v))
       this.ref = -1

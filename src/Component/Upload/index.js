@@ -15,7 +15,11 @@ class uploadModal extends React.Component {
     super(props)
     this.state = {
       seq: 0,
-      files: []
+      files: [],
+      instructor: '',
+      course: '',
+      semester: '',
+      type: ''
     }
     this.handleDrop = this.handleDrop.bind(this)
     this.handleDel = this.handleDel.bind(this)
@@ -57,6 +61,12 @@ class uploadModal extends React.Component {
             let data = new FormData()
             data.append('file', file)
             data.append('filename', name)
+            data.append('semester', this.state.semester)
+            data.append('type', this.state.type)
+            data.append('course', this.state.course)
+            data.append('instructor', this.state.instructor)
+            data.append('uid', this.props.uid)
+
             const options = {
               method: 'POST',
               headers: { 'content-type': 'multipart/form-data' },
@@ -83,10 +93,10 @@ class uploadModal extends React.Component {
           </span>
         </div>
         <form action=''>
-          <Input label='西元年份' autoComplete={false}/>
-          <Input label='類型' autoComplete={['期中考','期末考','小考']}/>
-          <Input label='課名' autoComplete={courses}/>
-          <Input label='老師' autoComplete={teachers}/>
+          <Input label='西元年份' autoComplete={false} onChange={(v) => {this.setState({semester: v})}}/>
+          <Input label='類型' autoComplete={['期中考','期末考','小考']} onChange={(v) => {this.setState({type: v})}}/>
+          <Input label='課名' autoComplete={courses} onChange={(v) => {this.setState({course: v})}}/>
+          <Input label='老師' autoComplete={teachers} onChange={(v) => {this.setState({instructor: v})}}/>
         <Dropzone
           accept='image/*,application/*'
           onDrop={this.handleDrop}
@@ -131,6 +141,7 @@ class uploadModal extends React.Component {
 
 export default connect((state) => {
   return {
+    uid: state.auth.id,
     courses: state.main.allCourse.map(c => c.zh),
     teachers: state.main.teachers.map(t => t.name),
   }
