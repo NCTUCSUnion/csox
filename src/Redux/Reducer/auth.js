@@ -1,32 +1,32 @@
 
 const initialState = {
-  loading: false,
-  id: '',
-  email: '',
-  available: false
+    loading: false,
+    id: '',
+    email: '',
+    available: false
 }
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+    switch (action.type) {
     case 'CHECKING':
-      return {
-        ...state,
-        loading: true
-      }
+        return {
+            ...state,
+            loading: true
+        }
     case 'NO_ALLOW':
-      return {
-        id: '',
-        available: false,
-        loading: false
-      }
+        return {
+            id: '',
+            available: false,
+            loading: false
+        }
     case 'PLEASE_COME_IN':
-      return {
-        id: action.id,
-        email: action.email,
-        available: true,
-        loading: false
-      }
+        return {
+            id: action.id,
+            email: action.email,
+            available: true,
+            loading: false
+        }
     default:
-      return state;
-  }
+        return state
+    }
 }
