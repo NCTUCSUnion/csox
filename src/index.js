@@ -11,18 +11,18 @@ import style from './Theme/globalStyle'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const store = createStore(reducer, composeWithDevTools(
-    applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware)
 ))
 
 const App = injectSheet(style)(() => (
-    <Router />
+  <Router />
 ))
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </Provider>
-    , document.getElementById('root')
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </Provider>
+  , document.getElementById('root')
 )
