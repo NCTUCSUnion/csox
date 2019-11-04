@@ -5,7 +5,7 @@ import Drawer from '../../Component/Drawer'
 import Table from '../../Component/Table'
 import { ToastWrapper } from '../../Component/Toast'
 
-export const COURSE_TYPES = ['大一', '大二', '大三', '大四', '研究所', '非資工科目', '考資工研究所']
+export const COURSE_TYPES = ['大一', '大二', '大三', '大四', '研究所', '資工其他','非資工科目', '考資工研究所']
 
 class Main extends React.Component {
   componentDidUpdate () {
