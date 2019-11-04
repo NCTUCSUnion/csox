@@ -52,7 +52,8 @@ const style = theme => ({
     }
   },
   inputContainer: {
-    textAlign: 'left',
+    display: 'flex',
+    flexWrap: 'wrap',
     margin: '0 auto',
     width: '90%'
   },
