@@ -1,4 +1,4 @@
-const style = {
+const style = theme => ({
   container: {
     boxSizing: 'border-box',
     width: 'calc(100vw - 220px)',
@@ -8,7 +8,8 @@ const style = {
     left: 220,
     overflowY: 'auto',
     padding: 20,
-    transition: '.2s'
+    transition: '.2s',
+    textAlign: 'center'
   },
   '@media (max-width: 576px)': {
     container: {
@@ -23,7 +24,12 @@ const style = {
   },
   td: {
     whiteSpace: 'nowrap'
+  },
+  link: {
+    cursor: 'pointer',
+    color: theme.colorPrimary,
+    textDecoration: 'underline !important'
   }
-}
+})
 
 export default style

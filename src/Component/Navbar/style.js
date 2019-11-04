@@ -30,6 +30,20 @@ const style = theme => ({
       top: '5px',
       marginRight: '8px',
       backgroundColor: theme.colorPrimary
+    },
+    '&::after': {
+      position: 'absolute',
+      content: '"beta"',
+      backgroundColor: '#e6326f',
+      color: 'white',
+      borderRadius: 1,
+      fontSize: 7,
+      width: 33,
+      height: 20,
+      lineHeight: '20px',
+      top: 3,
+      right: 0,
+      transform: 'translate(40%, 15%)'
     }
   },
   navItem: {
@@ -40,6 +54,11 @@ const style = theme => ({
     lineHeight: navHeight + 'px',
     textAlign: 'center',
     cursor: 'pointer',
+    padding: '0 20px',
+    '&:hover': {
+      transition: '.2s',
+      background: '#eee',
+    }
   }
 })
 

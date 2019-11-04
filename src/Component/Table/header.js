@@ -7,8 +7,8 @@ const Header = ({ classes, width }) => (
     <tr>
       <th>年份</th>
       <th>類型</th>
+      {width >= 976 && <th>老師</th>}
       {width >= 576 && <th>檔名</th>}
-      {width >= 976 && <th>提供者</th>}
     </tr>
   </thead>
 )

@@ -14,13 +14,15 @@ import UploadModal from '../Upload'
 // )))
 
 const Banner = withRouter(injectSheet(style)(({history, classes}) => (
-  <div className={classes.banner} onClick={() => history.push('/')}>交大資工考古題系統</div>
+  <div className={classes.banner} onClick={() => history.push('/')}>
+    交大資工考古題系統
+  </div>
 )))
 
 const Navbar = injectSheet(style)(({classes}) => (
   <nav className={classes.navbar}>
     <ModalWrapper />
-    <Banner />
+    <Banner/>
     <div className={classes.navItem} onClick={() => modal(<UploadModal />)}>上傳</div>
   </nav>
 ))
