@@ -10,8 +10,6 @@
     "polished": "^3.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.5.2",
-    "react-dropzone": "^6.2.4",
-    "react-jss": "^8.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^3.0.1",
