@@ -2,13 +2,12 @@
   "name": "oxox",
   "version": "1.0.0",
   "private": true,
-  "homepage" : "https://pastexam.csunion.nctu.me",
+  "homepage": "https://pastexam.csunion.nctu.me",
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
-    "file-saver": "^2.0.1",
-    "jszip": "^3.2.1",
     "node-sass": "^4.9.3",
+    "polished": "^3.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.5.2",
     "react-dropzone": "^6.2.4",
@@ -18,7 +17,8 @@
     "react-scripts": "^3.0.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
