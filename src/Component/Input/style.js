@@ -1,72 +1,77 @@
-const style = theme => ({
-  container: {
-    display: 'inline-block',
-    position: 'relative',
-    padding: 10,
-    marginBottom: 2
-  },
-  input: {
-    position: 'relative',
-    display: 'block',
-    outline: 'none',
-    border: 'none',
-    padding: '12px 10px 10px 5px',
-    fontSize: 16,
-    lineHeight: '18px',
-    borderBottom: '1px solid #757575',
-    zIndex: 1081,
-    background: 'transparent',
-    '&:valid': {
-      borderBottom: `1px solid ${theme.colorPrimary}`
-    },
-    '&:focus': {
-      borderBottom: `1px solid ${theme.colorPrimary}`,
-      transition: '.5s'
-    },
-    '&:focus ~ $label, &:valid ~ $label': {
-      transition: '.2s',
-      top: 2,
-      fontSize: 14,
-      lineHeight: '14px',
-      color: theme.colorPrimary
-    }
-  },
-  label: {
-    transition: '.2s',
-    position: 'absolute',
-    top: 24,
-    left: 14,
-    color: '#888',
-    fontSize: 18,
-    lineHeight: '18px',
-    fontWeight: 500
-  },
-  autoComplete: {
-    position: 'absolute',
-    zIndex: 1082,
-    width: 'calc(100% - 20px)',
-    background: 'white',
-    boxShadow: '1px 1px 2px rgba(0,0,0,.3)',
-    maxHeight: 250,
-    overflowY: 'auto',
-  },
-  autoCompleteItem:{
-    zIndex: 1081,
-    height: 50,
-    lineHeight: '50px',
-    cursor: 'pointer',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    textAlign: 'left',
-    padding: '2px 20px',
-    '&:hover':{
-      background: '#eee'
-    },
-    '&.active':{
-      background: '#eee'
-    }
-  }
-})
+import styled from 'styled-components';
 
-export default style
+export const Container = styled.div`
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 2px;
+`;
+
+export const Label = styled.label`
+  top: 24px;
+  left: 14px;
+  color: #888;
+  position: absolute;
+  font-size: 18px;
+  transition: .2s;
+  font-weight: 500;
+  line-height: 18px;
+`;
+
+export const Input = styled.input`
+  border: none;
+  display: block;
+  outline: none;
+  padding: 12px 10px 10px 5px;
+  z-index: 1081;
+  position: relative;
+  font-size: 16px;
+  background: transparent;
+  line-height: 18px;
+  border-bottom: 1px solid #757575;
+
+  &:valid {
+    border-bottom: 1px solid ${props => props.theme.colorPrimary};
+  }
+
+  &:focus {
+    transition: .5s;
+    border-bottom: 1px solid ${props => props.theme.colorPrimary};
+  }
+
+  &:focus ~ ${Label}, &:valid ~ ${Label} {
+    top: 2px;
+    color: ${props => props.theme.colorPrimary};
+    font-size: 14px;
+    transition: .2s;
+    line-height: 14px;
+  }
+`;
+
+export const AutoComplete = styled.div`
+  width: calc(100% - 20px);
+  z-index: 1082;
+  position: absolute;
+  background: white;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  max-height: 250px;
+  overflow-y: auto;
+`;
+
+export const AutoCompleteItem = styled.div`
+  cursor: pointer;
+  height: 50px;
+  padding: 2px 20px;
+  z-index: 1081;
+  overflow: hidden;
+  text-align: left;
+  line-height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:hover {
+    background: #eee;
+  }
+
+  background: ${props => props.active && '#eee'};
+`;

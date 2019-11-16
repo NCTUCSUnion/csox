@@ -1,44 +1,45 @@
-const style = theme => ({
-  title: {
-    position: 'absolute',
-    height: '22vh',
-    top: 'calc((100vh - 20px - 25vh) / 2)',
-    left: '10vw',
-    borderLeft: `13px solid ${theme.colorPrimary}`
-  },
-  en: {
-    marginLeft: '30px',
-    color: 'rgb(83, 83, 83)',
-    fontSize: '2rem',
-    lineHeight: '30px',
-    fontWeight: 400
-  },
-  zh: {
-    marginLeft: '30px',
-    color: 'rgb(83, 83, 83)',
-    fontSize: '3.2rem',
-    lineHeight: '30px',
-    fontWeight: 500
-  },
-  login: {
-    position: 'absolute',
-    right: '20vw',
-    bottom: '33vh',
-    width: 150,
-    height: 45,
-    backgroundColor: theme.colorPrimary,
-    textAlign: 'center',
-    lineHeight: '45px',
-    color: '#fff',
-    borderRadius: 2,
-    fontWeight: 400,
-    cursor: 'pointer',
-    boxShadow: theme.shadow,
-    '&:hover': {
-      backgroundColor: theme.colorPrimary,
-      color: 'white'
-    }
-  }
-})
+import styled from 'styled-components';
 
-export default style
+export const Title = styled.div`
+  top: calc((100vh - 20px - 25vh) / 2);
+  left: 10vw;
+  height: 22vh;
+  position: absolute;
+  border-left: 13px solid ${props => props.theme.colorPrimary};
+`;
+
+export const EN = styled.div`
+  color: rgb(83, 83, 83);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 30px;
+  margin-left: 30px;
+`;
+
+export const ZH = styled.h1`
+  color: rgb(83, 83, 83);
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 30px;
+  margin-left: 30px;
+`;
+
+export const Login = styled.div`
+  color: #fff;
+  right: 20vw;
+  width: 150px;
+  bottom: 33vh;
+  cursor: pointer;
+  height: 45px;
+  position: absolute;
+  text-align: center;
+  font-weight: 400;
+  line-height: 45px;
+  border-radius: 2px;
+  background: ${props => props.theme.colorPrimary};
+  box-shadow: ${props => props.theme.shadow};
+
+  &:hover {
+    color: white;
+  }
+`;

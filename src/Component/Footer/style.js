@@ -1,15 +1,14 @@
-const style = {
-  footer: {
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
-    height: 20,
-    backgroundColor: 'rgba(0,0,0,.35)',
-    lineHeight: '20px',
-    textAlign: 'center',
-    color: '#eee',
-    fontSize: 12
-  }
-}
+import styled from 'styled-components';
 
-export default style
+export const Footer = styled.div`
+  color: #eee;
+  width: 100%;
+  bottom: 0;
+  height: 20px;
+  position: fixed;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  background-color: rgba(0,0,0,.35);
+`;
+

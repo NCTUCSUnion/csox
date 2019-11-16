@@ -1,9 +1,7 @@
-import React from 'react'
-import injectSheet from 'react-jss'
-import style from './style'
+import React from 'react';
 
-const Header = ({ classes, width }) => (
-  <thead className={classes.fixedHeader}>
+const Header = ({ width }) => (
+  <thead>
     <tr>
       <th>年份</th>
       <th>類型</th>
@@ -11,6 +9,6 @@ const Header = ({ classes, width }) => (
       {width >= 576 && <th>檔名</th>}
     </tr>
   </thead>
-)
+);
 
-export default injectSheet(style)(Header)
+export default Header;

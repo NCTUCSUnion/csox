@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Navbar from './Component/Navbar'
-import Footer from './Component/Footer'
-import Home from './Page/Home'
-import Main from './Page/Main'
-import { checkIsAvailable } from './Redux/Action/auth'
+import Navbar from './Component/Navbar';
+import Footer from './Component/Footer';
+import Home from './Page/Home';
+import Main from './Page/Main';
+import { checkIsAvailable } from './Redux/Action/auth';
 
 const AuthedRoute = ({ component, authed, ...rest }) => {
   if(authed){
-    return <Route component={component} {...rest}/>
+    return <Route component={component} {...rest}/>;
   }
   else {
     return <Redirect to={{
@@ -18,24 +18,24 @@ const AuthedRoute = ({ component, authed, ...rest }) => {
       state: {
         isRedirect: true
       }
-    }}/>
+    }}/>;
   }
-}
+};
 
 const ProxyRoute = ({ component: Component, authed, ...rest }) => {
   if(authed){
-    return <Redirect to='/main'/>
+    return <Redirect to='/main'/>;
   }
-  return <Route component={() => <Component isRedirect={true}/>} {...rest}/>
-}
+  return <Route component={() => <Component isRedirect={true}/>} {...rest}/>;
+};
 
 const Router = ({ loading, isAvailable }) => {
   useEffect(() => {
-    checkIsAvailable()
-  })
+    checkIsAvailable();
+  });
 
   if(loading){
-    return <div>Loading</div>
+    return <div>Loading</div>;
   }
 
   return(
@@ -51,11 +51,11 @@ const Router = ({ loading, isAvailable }) => {
         </Switch>
       </React.Fragment>
     </BrowserRouter>
-  )
-}
+  );
+};
 export default connect((state) => ({
   loading: state.auth.loading,
   isAvailable: state.auth.available
 }),(dispatch) => ({
   checkIsAvailable: dispatch(checkIsAvailable())
-}))(Router)
+}))(Router);

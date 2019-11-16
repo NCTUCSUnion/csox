@@ -1,11 +1,10 @@
-import React from 'react'
-import injectSheet from 'react-jss'
-import style from './style'
+import React from 'react';
+import { Footer as Wrapper } from './style';
 
-const Footer = ({classes}) => (
-  <div className={classes.footer}>
+const Footer = () => (
+  <Wrapper>
     資工系09系學會 &copy; 2018
-  </div>
-)
+  </Wrapper>
+);
 
-export default injectSheet(style)(Footer)
+export default Footer;

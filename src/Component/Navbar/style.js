@@ -1,65 +1,66 @@
-const navHeight = 65
+import styled from 'styled-components';
 
-const style = theme => ({
-  navbar: {
-    position: 'absolute',
-    top: 0,
-    zIndex: 9,
-    width: '100%',
-    height: navHeight,
-    background: theme.colorDefault,
-    boxShadow: theme.shadow,
-    lineHeight: navHeight + 'px', // default value is em if you just use  numeric value
-    textAlign: 'center'
-  },
-  banner: {
-    position: 'relative',
-    left: 0,
-    width: 250,
-    height: navHeight,
-    fontSize: 22,
-    fontWeight: 500,
-    userSelect: 'none',
-    cursor: 'pointer',
-    '&::before': {
-      content: '""',
-      display: 'inline-block',
-      width: '6px',
-      height: '25px',
-      position: 'relative',
-      top: '5px',
-      marginRight: '8px',
-      backgroundColor: theme.colorPrimary
-    },
-    '&::after': {
-      position: 'absolute',
-      content: '"beta"',
-      backgroundColor: '#e6326f',
-      color: 'white',
-      borderRadius: 1,
-      fontSize: 7,
-      width: 33,
-      height: 20,
-      lineHeight: '20px',
-      top: 3,
-      right: 0,
-      transform: 'translate(40%, 15%)'
-    }
-  },
-  navItem: {
-    position: 'absolute',
-    top: '0',
-    right: 20,
-    height: navHeight,
-    lineHeight: navHeight + 'px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    padding: '0 20px',
-    '&:hover': {
-      transition: '.2s',
-      background: '#eee',
-    }
+export const Navbar = styled.div`
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  position: absolute;
+  text-align: center;
+  height: ${props => props.theme.navHeight};
+  background: ${props => props.theme.colorDefault};
+  box-shadow: ${props => props.theme.shadow};
+  line-height: ${props => props.theme.navHeight}px;
+`;
+
+export const Banner = styled.div`
+  left: 0;
+  width: 250px;
+  cursor: pointer;
+  position: relative;
+  font-size: 22px;
+  font-weight: 500;
+  user-select: none;
+  height: ${props => props.theme.navHeight};
+
+  &::before {
+    top: 5px;
+    width: 6px;
+    height: 25px;
+    content: "";
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    background: ${props => props.theme.colorPrimary};
   }
-})
 
-export default style
+  &::after {
+    top: 3px;
+    color: white;
+    right: 0;
+    width: 33px;
+    height: 20px;
+    content: "beta";
+    position: absolute;
+    font-size: 7px;
+    transform: translate(40%, 15%);
+    line-height: 20px;
+    border-radius: 1px;
+    background-color: #e6326f;
+  }
+`;
+
+export const Item = styled.div`
+  top: 0;
+  right: 20px;
+  cursor: pointer;
+  padding: 0 20px;
+  position: absolute;
+  text-align: center;
+  height: ${props => props.theme.navHeight};
+  line-height: ${props => props.theme.navHeight}px;
+
+  &:hover {
+    background: #eee;
+    transition: .2s;
+  }
+`;

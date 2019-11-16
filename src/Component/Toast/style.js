@@ -1,108 +1,66 @@
-const success = ['rgba(91, 200, 165,1)', '#fff']
-const info = ['#17a2b8', '#fff']
-const warning = ['#ffc107', '#fff']
-const danger = ['#dc3545', '#fff']
+import styled, { keyframes } from 'styled-components';
 
-const style = {
-  toastWrapper: {
-    position: 'fixed',
-    top: 'calc(56px + 1em)',
-    left: '1em'
-  },
-  '@keyframes fadeInLeft': {
-    from: {
-      opacity: 0,
-      left: -300
-    },
-    to: {
-      opacity: 0.9,
-      left: 0
-    }
-  },
-  toast: {
-    position: 'relative',
-    top: 0,
-    zIndex: 11,
-    width: 250,
-    height: 58,
-    borderRadius: 2,
-    userSelect: 'none',
-    lineHeight: '58px',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    fontSize: 15,
-    padding: '0 8%',
-    marginBottom: '5%',
-    cursor: 'pointer',
-    boxShadow: '1px 1px 5px rgba(0,0,0,.17)',
-    transition: '.2s',
-    animation: 'fadeInLeft .2s',
-    '&:hover': {
-      borderTop: '0',
-      opacity: '1'
-    }
-  },
-  '@keyframes shrinking': {
-    from: {
-      width: '100%'
-    },
-    to: {
-      width: 0
-    }
-  },
-  toastInfo: {
-    '&::after': {
-      content: '""',
-      backgroundColor: info[0],
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      height: '5px',
-      animation: 'shrinking 5s'
-    },
-    backgroundColor: info[1],
-    color: info[0]
-  },
-  toastSuccess: {
-    '&::after': {
-      content: '""',
-      backgroundColor: success[0],
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      height: '5px',
-      animation: 'shrinking 5s'
-    },
-    backgroundColor: success[1],
-    color: success[0]
-  },
-  toastWarning: {
-    '&::after': {
-      content: '""',
-      backgroundColor: warning[0],
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      height: '5px',
-      animation: 'shrinking 5s'
-    },
-    backgroundColor: warning[1],
-    color: warning[0]
-  },
-  toastDanger: {
-    '&::after': {
-      content: '""',
-      backgroundColor: danger[0],
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      height: '5px',
-      animation: 'shrinking 5s'
-    },
-    backgroundColor: danger[1],
-    color: danger[0]
+const fadeInLeft = keyframes`
+  from {
+    left: -300px;
+    opacity: 0;
   }
-}
+  to {
+    left: 0;
+    opacity: 0.9;
+  }
+`;
 
-export default style
+const shrinking = keyframes`
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+`;
+
+export const Wrapper = styled.div`
+  top: calc(56px + 1em);
+  left: 1em;
+  position: fixed;
+  z-index: 99999;
+`;
+
+export const Item = styled.div`
+  top: 0;
+  width: 250px;
+  cursor: pointer;
+  height: 58px;
+  padding: 0 8%;
+  overflow: hidden;
+  position: relative;
+  animation: ${fadeInLeft} .2s;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,.17);
+  transition: .2s;
+  line-height: 58px;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 2px;
+  margin-bottom: 5%;
+  text-overflow: ellipsis;
+
+  &:hover {
+    opacity: 1;
+    border-top: 0;
+  }
+
+  &::after {
+    top: 0;
+    left: 0;
+    height: 5px;
+    content: "";
+    position: absolute;
+    animation: ${shrinking} 5s;
+    background: ${props => props.colors[0]};
+  }
+  background: ${props => props.colors[1]};
+  color: ${props => props.colors[0]};
+`;
+

@@ -1,18 +1,17 @@
-import React from 'react'
-import injectSheet from 'react-jss'
-import classNames from 'classnames'
-import {connect} from 'react-redux'
-import {fetchExam} from '../../Redux/Action/exam'
-import style from './style'
+import React from 'react';
+import classNames from 'classnames';
+import {connect} from 'react-redux';
+import {fetchExam} from '../../Redux/Action/exam';
+import { Label, List } from './style';
 
 class ListGroup extends React.Component {
   constructor (props) {
-    super(props)
-    this.toggle = this.toggle.bind(this)
+    super(props);
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle (type) {
-    this.props.toggle(type)
+    this.props.toggle(type);
   }
 
   render () {
@@ -24,26 +23,25 @@ class ListGroup extends React.Component {
       label,
       list,
       selectID,
-      classes,
-      fetchExam } = this.props
+      fetchExam } = this.props;
     return (
       <React.Fragment>
-        <div className={classes.label} onClick={() => this.toggle(order)}>
+        <Label onClick={() => this.toggle(order)}>
           <i className={classNames('fas',(toggles[order] && (chaos || type === order)) ?'fa-caret-down':'fa-caret-right')}/>
         &nbsp;{label}
-        </div>
+        </Label>
         {toggles[order] && (chaos || type === order) && list.map(
           (cos, index) => (
-            <div
+            <List
               key={index}
-              className={classNames(classes.list, selectID === cos.id && 'active')}
+              active={selectID === cos.id}
               onClick={() => fetchExam(cos)}>
               {cos.zh}
-            </div>
+            </List>
           )
         )}
       </React.Fragment>
-    )
+    );
   }
 }
 
@@ -52,11 +50,11 @@ const mapState2Prop = state => ({
   type: state.main.chooseType,
   selectID: state.main.chooseCourse,
   chaos: state.main.chaos
-})
+});
 
 const mapDispatch2Prop = dispatch => ({
   fetchExam: (id) => dispatch(fetchExam(id)),
   toggle: (type) => dispatch({type: 'TOGGLE', category: type})
-})
+});
 
-export default connect(mapState2Prop, mapDispatch2Prop)(injectSheet(style)(ListGroup))
+export default connect(mapState2Prop, mapDispatch2Prop)(ListGroup);
