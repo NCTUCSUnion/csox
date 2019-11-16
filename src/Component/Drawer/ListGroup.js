@@ -5,7 +5,7 @@ import {fetchExam} from '../../Redux/Action/exam';
 import { Label, List } from './style';
 
 const ListGroup = ({ order, label, list }) => {
-  const { toggles, chooseType, selectID, chaos } = useSelector(state => state.main);
+  const { toggles, chooseType, chooseCourse, chaos } = useSelector(state => state.main);
   const dispatch = useDispatch();
   const toggle = type => () => {
     dispatch({type: 'TOGGLE', category: type});
@@ -24,7 +24,7 @@ const ListGroup = ({ order, label, list }) => {
         (cos, index) => (
           <List
             key={index}
-            active={selectID === cos.id}
+            active={chooseCourse === cos.id}
             onClick={fetch(cos)}>
             {cos.zh}
           </List>

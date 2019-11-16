@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
+import Loading from './Component/Loading';
 import Home from './Page/Home';
 import Main from './Page/Main';
 import { checkIsAvailable } from './Redux/Action/auth';
@@ -29,13 +30,17 @@ const ProxyRoute = ({ component: Component, authed, ...rest }) => {
   return <Route component={() => <Component isRedirect={true}/>} {...rest}/>;
 };
 
-const Router = ({ loading, isAvailable }) => {
+const Router = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+  const isAvailable = useSelector(state => state.auth.available);
+
   useEffect(() => {
-    checkIsAvailable();
-  });
+    dispatch(checkIsAvailable());
+  }, []);
 
   if(loading){
-    return <div>Loading</div>;
+    return <Loading/>;
   }
 
   return(
@@ -53,9 +58,4 @@ const Router = ({ loading, isAvailable }) => {
     </BrowserRouter>
   );
 };
-export default connect((state) => ({
-  loading: state.auth.loading,
-  isAvailable: state.auth.available
-}),(dispatch) => ({
-  checkIsAvailable: dispatch(checkIsAvailable())
-}))(Router);
+export default Router;

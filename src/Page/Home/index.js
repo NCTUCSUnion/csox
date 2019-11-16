@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import {withRouter} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Title, EN, ZH, Login } from './style';
 import { toast, ToastWrapper } from '../../Component/Toast';
 
-const Home = ({location, isRedirect}) => {
+const Home = ({ isRedirect }) => {
+  const location = useLocation();
+
   useEffect(() => {
     if(location.state){
       toast('請先登入', {type: 'Info'});
@@ -29,4 +31,4 @@ const Home = ({location, isRedirect}) => {
   );
 };
 
-export default withRouter(Home);
+export default Home;
