@@ -37,7 +37,7 @@ const Uploader = ({ onDrop, onDel }) => {
 
   const checkFile = file => {
     if(file.type && !file.type.startsWith('image') && !file.type.startsWith('application')){
-      toast('不支援上傳之檔案格式', {type: 'Danger'});
+      toast('此檔案格式不支援', {type: 'Info'});
       return false;
     }
     if(file.size && file.size > 10 * 1000 * 1000){
@@ -50,12 +50,19 @@ const Uploader = ({ onDrop, onDel }) => {
   const handleDrop = e => {
     stop(e);
 
-    const files = e.dataTransfer ? e.dataTransfer.files : e.target.files || [];
-    if (files.length <= 0) {
+    const droppedFiles = e.dataTransfer ? e.dataTransfer.files : e.target.files || [];
+    if (droppedFiles.length <= 0) {
       return;
     }
 
-    const filesArray = Array.from(files);
+    // Forbidden multiple files
+    if(droppedFiles.length + files.length > 1) {
+      toast('目前尚未支援多檔案上傳', {type: 'Info'});
+      handleDragLeave();
+      return;
+    }
+
+    const filesArray = Array.from(droppedFiles);
     setFiles(prev => {
       const cur = filesArray
         .filter(checkFile)
@@ -76,6 +83,11 @@ const Uploader = ({ onDrop, onDel }) => {
     setActive(true);
     e.dataTransfer.dropEffect = 'copy';
     const items = Array.from(e.dataTransfer.items) || [];
+
+    if(items.length > 1) {
+      setFailed(true);
+      return;
+    }
     setFailed(!items.every(checkFile));
   };
 
@@ -97,7 +109,7 @@ const Uploader = ({ onDrop, onDel }) => {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}>
-      <InvisibleInput id='uploader' type='file' onChange={handleDrop} multiple />
+      <InvisibleInput id='uploader' type='file' onChange={handleDrop}/>
       {files.length > 0
         ? files.map(({name, size, type, preview}, index) => (
           <File key={index} onClick={stop}>

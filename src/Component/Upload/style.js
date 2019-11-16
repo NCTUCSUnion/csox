@@ -148,7 +148,9 @@ export const Type = styled.a`
 export const Container = styled.label`
   cursor: pointer;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
   outline: none;
   min-height: 180px;
   max-height: 50vh;

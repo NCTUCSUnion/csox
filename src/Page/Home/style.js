@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Title = styled.div`
   top: calc((100vh - 20px - 25vh) / 2);
   left: 10vw;
-  height: 22vh;
   position: absolute;
   border-left: 13px solid ${props => props.theme.colorPrimary};
 `;
