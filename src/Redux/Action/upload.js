@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { toast } from '../../Component/Toast';
 import { closeModal } from '../../Component/Modal';
+import { API_URL } from '../../constant';
 
-const baseURL = 'https://csunion.nctu.me/_api/oldexam';
 const config = {
   responseType: 'blob'
 };
@@ -10,7 +10,7 @@ const options = (data) => ({
   method: 'POST',
   headers: { 'content-type': 'multipart/form-data' },
   data: data,
-  url: `${baseURL}/upload`
+  url: `${API_URL}/upload`
 });
 
 export const uploadFile = ({ file, semester, type, course, instructor, category }) => (dispatch, getState) => {

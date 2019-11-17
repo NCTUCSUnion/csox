@@ -1,9 +1,9 @@
 import axios from 'axios';
-const baseURL = 'https://csunion.nctu.me/_api/oldexam';
+import { API_URL } from '../../constant';
 
 export const checkIsAvailable = () => (dispatch) => {
   dispatch({type: 'CHECKING'});
-  axios.get(`${baseURL}/check`,{
+  axios.get(`${API_URL}/check`,{
     withCredentials: true
   }).then(
     res => res.data

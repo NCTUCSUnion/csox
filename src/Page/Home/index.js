@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import { Title, EN, ZH, Login } from './style';
 import { toast, ToastWrapper } from '../../Component/Toast';
+import { API_URL } from '../../constant';
 
 const Home = ({ isRedirect }) => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const Home = ({ isRedirect }) => {
   });
 
   const goToOauth = () => {
-    window.location.href = ('https://csunion.nctu.me/_api/oldexam/login');
+    window.location.href = (`${API_URL}/login`);
   };
 
   return(

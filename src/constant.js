@@ -8,3 +8,5 @@ export const COURSE_TYPES = [
   '非資工科目',
   '考資工研究所'
 ];
+
+export const API_URL = 'https://csunion.nctu.me/_api/oldexam';

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { toast } from '../../Component/Toast';
-const baseURL = 'https://csunion.nctu.me/_api/oldexam';
+import { API_URL } from '../../constant';
+
 const storage = window.localStorage;
 
 export const fetchCourse = () => async (dispatch) => {
@@ -8,7 +9,7 @@ export const fetchCourse = () => async (dispatch) => {
   if (storage.hasOwnProperty('courses')) { // eslint-disable-line no-prototype-builtins
     dispatch({type: 'RECEIVE_COURSE', course: JSON.parse(storage.getItem('courses'))});
   } else {
-    axios.get(`${baseURL}/course`).then(
+    axios.get(`${API_URL}/course`).then(
       res => res.data
     ).then(
       course => {
@@ -26,7 +27,7 @@ export const fetchTeacher = () => (dispatch) => {
   if (storage.hasOwnProperty('teachers')) { // eslint-disable-line no-prototype-builtins
     dispatch({type: 'RECEIVE_TEACHER', teacher: JSON.parse(storage.getItem('teachers'))});
   } else {
-    axios.get(`${baseURL}/teacher`).then(
+    axios.get(`${API_URL}/teacher`).then(
       res => res.data
     ).then(
       teacher => {
@@ -52,7 +53,7 @@ export const fetchExam = id => async (dispatch, getState) => {
     return;
   }
 
-  axios.get(`${baseURL}/exam?id=${id}`).then(
+  axios.get(`${API_URL}/exam?id=${id}`).then(
     res => res.data
   ).then(
     exam => dispatch({type: 'RECEIVE_EXAM', exam, id})
@@ -63,5 +64,5 @@ export const fetchExam = id => async (dispatch, getState) => {
 
 export const download = (e) => {
   toast(`已下載 ${e.filename}`);
-  window.open(`${baseURL}/download?eid=${e.id}&fn=${e.filename}`);
+  window.open(`${API_URL}/download?eid=${e.id}&fn=${e.filename}`);
 };
