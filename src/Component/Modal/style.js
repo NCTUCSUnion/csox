@@ -29,18 +29,20 @@ export const Main = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  display: flex;
-  outline: 0;
-  z-index: 1080;
-  position: relative;
-  animation: ${fadeInUp} .2s ease-in-out;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14); /* youtube box-shadow setting */
-  min-height: 50vh;
-  flex-direction: column;
   pointer-events: auto;
-  background-clip: padding-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50vh;
+  outline: 0;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14); /* youtube box-shadow setting */
+  border-radius: 5px;
   background-color: #fff;
+  background-clip: padding-box;
+  animation: ${fadeInUp} .2s ease-in-out;
 `;
 
 export const Dialog = styled.div`

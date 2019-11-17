@@ -3,7 +3,7 @@ import { toast } from '../../Component/Toast';
 const baseURL = 'https://csunion.nctu.me/_api/oldexam';
 const storage = window.localStorage;
 
-export const fetchCourse = () => (dispatch) => {
+export const fetchCourse = () => async (dispatch) => {
   dispatch({type: 'FETCH_COURSE'});
   if (storage.hasOwnProperty('courses')) { // eslint-disable-line no-prototype-builtins
     dispatch({type: 'RECEIVE_COURSE', course: JSON.parse(storage.getItem('courses'))});
@@ -39,12 +39,23 @@ export const fetchTeacher = () => (dispatch) => {
   }
 };
 
-export const fetchExam = (cos) => (dispatch) => {
-  dispatch({type: 'CHOOSE_COURSE', category: cos.type, id: cos.id});
-  axios.get(`${baseURL}/exam?id=${cos.id}`).then(
+export const fetchExam = id => async (dispatch, getState) => {
+  await dispatch(fetchCourse());
+
+  const target = getState().main.allCourse.filter(course => String(course.id) === id)[0];
+  if (target) {
+    dispatch({type: 'CHOOSE_COURSE', category: target.type - 1, id});
+  }
+
+  if(getState().main.exam[id]){
+    dispatch({type: 'USE_CACHE_EXAM'});
+    return;
+  }
+
+  axios.get(`${baseURL}/exam?id=${id}`).then(
     res => res.data
   ).then(
-    exam => dispatch({type: 'RECEIVE_EXAM', exam})
+    exam => dispatch({type: 'RECEIVE_EXAM', exam, id})
   ).catch(
     err => console.error(err)
   );

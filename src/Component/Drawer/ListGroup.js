@@ -1,17 +1,20 @@
 import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import {fetchExam} from '../../Redux/Action/exam';
 import { Label, List } from './style';
 
 const ListGroup = ({ order, label, list }) => {
-  const { toggles, chooseType, chooseCourse, chaos } = useSelector(state => state.main);
+  const history = useHistory();
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+  const { toggles, chooseType, chaos } = useSelector(state => state.main);
   const dispatch = useDispatch();
   const toggle = type => () => {
     dispatch({type: 'TOGGLE', category: type});
   };
-  const fetch = cos => () => {
-    dispatch(fetchExam(cos));
+  const goToExamPage = id => () => {
+    history.push(`/main/${id}`);
   };
 
   return (
@@ -24,8 +27,8 @@ const ListGroup = ({ order, label, list }) => {
         (cos, index) => (
           <List
             key={index}
-            active={chooseCourse === cos.id}
-            onClick={fetch(cos)}>
+            active={id === `${cos.id}`}
+            onClick={goToExamPage(cos.id)}>
             {cos.zh}
           </List>
         )

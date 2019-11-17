@@ -3,8 +3,7 @@ const initialState = {
   teachers: [],
   toggles: [false, false, false, false, false, false, false, false],
   chooseType: null,
-  chooseCourse: null,
-  exam: [],
+  exam: {},
   chaos: true,
   loading: undefined,
 };
@@ -29,7 +28,6 @@ export default (state = initialState, action) => {
     return {
       ...state,
       chooseType: category,
-      chooseCourse: id,
       chaos: false,
       toggles: [...tmp],
       loading: true,
@@ -37,8 +35,16 @@ export default (state = initialState, action) => {
   case 'RECEIVE_EXAM':
     return {
       ...state,
-      exam: [...exam],
+      exam: {
+        ...state.exam,
+        [id]: exam,
+      },
       loading: false
+    };
+  case 'USE_CACHE_EXAM':
+    return {
+      ...state,
+      loading: false,
     };
   case 'TOGGLE':
     tmp = state.toggles;

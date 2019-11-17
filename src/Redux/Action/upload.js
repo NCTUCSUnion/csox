@@ -13,7 +13,13 @@ const options = (data) => ({
   url: `${baseURL}/upload`
 });
 
-export const uploadFile = ({ file, semester, type, course, instructor, category }, uid) => (dispatch) => {
+export const uploadFile = ({ file, semester, type, course, instructor, category }) => (dispatch, getState) => {
+  const uid = getState().auth.id;
+
+  if (!uid) {
+    toast('無效的使用者，請重新登入');
+  }
+
   let {name, preview} = file;
   dispatch({type: 'GET_BLOB'});
 

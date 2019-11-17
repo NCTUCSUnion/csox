@@ -44,6 +44,5 @@ module.exports = {
             'always'
         ],
         "react/prop-types": 0,
-        "react-hooks/exhaustive-deps": "off",
     }
 }

@@ -9,7 +9,7 @@ import Home from './Page/Home';
 import Main from './Page/Main';
 import { checkIsAvailable } from './Redux/Action/auth';
 
-const AuthedRoute = ({ component, authed, ...rest }) => {
+const AuthedRoute = ({ component, authed, location, ...rest }) => {
   if(authed){
     return <Route component={component} {...rest}/>;
   }
@@ -17,15 +17,16 @@ const AuthedRoute = ({ component, authed, ...rest }) => {
     return <Redirect to={{
       pathname: '/',
       state: {
-        isRedirect: true
+        isRedirect: true,
+        redirectUrl: location.pathname,
       }
     }}/>;
   }
 };
 
-const ProxyRoute = ({ component: Component, authed, ...rest }) => {
+const ProxyRoute = ({ component: Component, authed, location, ...rest }) => {
   if(authed){
-    return <Redirect to='/main'/>;
+    return <Redirect to={location.state ? location.state.redirectUrl || '/main' : '/main'}/>;
   }
   return <Route component={() => <Component isRedirect={true}/>} {...rest}/>;
 };
@@ -37,7 +38,7 @@ const Router = () => {
 
   useEffect(() => {
     dispatch(checkIsAvailable());
-  }, []);
+  }, [ dispatch ]);
 
   if(loading){
     return <Loading/>;

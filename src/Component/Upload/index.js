@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Input from '../Input';
+import { COURSE_TYPES } from '../../constant';
+import { closeModal } from '../Modal';
+import Loading from '../Loading';
+import Uploader from './Uploader';
+import { toast } from '../Toast';
+
 import {
   Header,
   Title,
@@ -7,17 +15,10 @@ import {
   Action,
   InputContainer,
 } from './style';
-import { closeModal } from '../Modal';
-import { useDispatch, useSelector } from 'react-redux';
-import { COURSE_TYPES } from '../../Page/Main';
-import Loading from '../Loading';
-import Uploader from './Uploader';
 import { uploadFile } from '../../Redux/Action/upload';
-import { toast } from '../Toast';
 
 const UploadModal = () => {
   const dispatch = useDispatch();
-  const uid = useSelector(state => state.auth.id);
   const courses = useSelector(state => state.main.allCourse);
   const teachers = useSelector(state => state.main.teachers.map(t => t.name));
   const loading = useSelector(state => state.upload.loading);
@@ -58,7 +59,7 @@ const UploadModal = () => {
     }
     const { semester, type, course, instructor, category } = form;
     dispatch(
-      uploadFile({ file: form.files[0], semester, type, course, instructor, category }, uid)
+      uploadFile({ file: form.files[0], semester, type, course, instructor, category })
     );
   };
 
