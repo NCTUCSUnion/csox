@@ -37,7 +37,18 @@ const Uploader = ({ onDrop, onDel }) => {
   };
 
   const checkFile = file => {
-    if(file.type && !file.type.startsWith('image') && !file.type.startsWith('application')){
+    /**
+     *  FIXME: handleDragOver only needs to take once.
+     */
+    if (isFailed) {
+      return false;
+    }
+
+    if(file.type
+        && !file.type.startsWith('image')
+        && !file.type.startsWith('video')
+        && !file.type.startsWith('application')
+    ){
       toast('此檔案格式不支援', {type: 'Info'});
       return false;
     }
@@ -85,11 +96,10 @@ const Uploader = ({ onDrop, onDel }) => {
     e.dataTransfer.dropEffect = 'copy';
     const items = Array.from(e.dataTransfer.items) || [];
 
-    if(items.length > 1) {
+    if(items.length > 1 || !checkFile(items[0])) {
       setFailed(true);
       return;
     }
-    setFailed(!items.every(checkFile));
   };
 
   const style = useMemo(() => ({
