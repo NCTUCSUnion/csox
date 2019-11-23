@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { FaCaretRight, FaCaretDown } from 'react-icons/fa';
 import { Label, List } from './style';
 
 const ListGroup = ({ order, label, list }) => {
@@ -20,7 +21,7 @@ const ListGroup = ({ order, label, list }) => {
   return (
     <>
       <Label onClick={toggle(order)}>
-        <i className={classNames('fas', (toggles[order] && (chaos || chooseType === order)) ?'fa-caret-down':'fa-caret-right')}/>
+        {toggles[order] && (chaos || chooseType === order) ? <FaCaretDown/> : <FaCaretRight/>}
       &nbsp;{label}
       </Label>
       {toggles[order] && (chaos || chooseType === order) && list.map(

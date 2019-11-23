@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { FaTimes } from 'react-icons/fa';
 
 const fadeInLeft = keyframes`
   from {
@@ -12,6 +13,8 @@ const fadeInLeft = keyframes`
 `;
 
 export const Header = styled.div`
+  display: flex;
+  align-items: center;
   color: white;
   height: initial;
   margin: 0 0 20px 0;
@@ -31,12 +34,11 @@ export const Title = styled.span`
   font-weight: 500;
 `;
 
-export const Leave = styled.div.attrs({
-  className: 'fas fa-times',
-})`
+export const Leave = styled(FaTimes)`
   display: inline-block;
   height: 24px;
   width: 24px;
+  padding: 3px;
   text-align: center;
   line-height: 24px;
   border-radius: 24px;
@@ -86,6 +88,9 @@ export const File = styled.div`
 `;
 
 export const Del = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   width: 1.5rem;
   height: 1.5rem;
@@ -168,4 +173,9 @@ export const Description = styled.div`
 
 export const InvisibleInput = styled.input`
   display: none;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;

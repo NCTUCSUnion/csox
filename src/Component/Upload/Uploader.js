@@ -10,6 +10,7 @@ import {
   InvisibleInput,
 } from './style';
 import { toast } from '../Toast';
+import { FaTimes, FaFilePdf, FaFileArchive } from 'react-icons/fa';
 
 const activeStyle = {
   borderColor: '#5bc8a5',
@@ -113,7 +114,7 @@ const Uploader = ({ onDrop, onDel }) => {
       {files.length > 0
         ? files.map(({name, size, type, preview}, index) => (
           <File key={index} onClick={stop}>
-            <Del onClick={handleRemoveItem(index)}><i className='fas fa-times'/></Del>
+            <Del onClick={handleRemoveItem(index)}><FaTimes/></Del>
             <Meta>
               <Label>{name}</Label>
               <Label>{Number.parseFloat(size / 1000000).toFixed(2)}MB</Label>
@@ -122,8 +123,8 @@ const Uploader = ({ onDrop, onDel }) => {
               {type.startsWith('image')
                 ? <img src={preview} alt='preview' />
                 : type.endsWith('pdf')
-                  ? <i className='fas fa-file-pdf' />
-                  : <i className='fas fa-file-archive' />}
+                  ? <FaFilePdf/>
+                  : <FaFileArchive/>}
             </Type>
           </File>
         ))

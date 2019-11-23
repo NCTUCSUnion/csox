@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { FaCloudUploadAlt } from 'react-icons/fa';
 import Input from '../Input';
 import { COURSE_TYPES } from '../../constant';
 import { closeModal } from '../Modal';
@@ -12,6 +13,7 @@ import {
   Header,
   Title,
   Leave,
+  Wrapper,
   Action,
   InputContainer,
 } from './style';
@@ -69,7 +71,7 @@ const UploadModal = () => {
         <Leave onClick={closeModal}/>
         <Title>上傳考古題</Title>
         <Action active={!loading} {...!loading && { onClick: handleUpload }}>
-          {loading ? <Loading/> : <><i className='fas fa-cloud-upload-alt' />&nbsp;上傳</>}
+          {loading ? <Loading/> : <Wrapper><FaCloudUploadAlt/>&nbsp;上傳</Wrapper>}
         </Action>
       </Header>
       <form action=''>
