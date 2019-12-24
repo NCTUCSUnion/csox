@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, Link } from './style';
@@ -18,18 +18,19 @@ const Table = () => {
   const id = location.pathname.split('/')[2];
   const exam = useSelector(state => state.main.exam[id] || []);
   const loading = useSelector(state => state.main.loading);
-  const tableEl = useRef();
 
   useEffect(() => {
     dispatch(fetchExam(id));
-
-    if(tableEl.current) {
-      tableEl.current.scrollTo(0, 0);
+    if (window) {
+      window.scrollTo(0,0);
+    } else {
+      document.body.scrollTo(0, 0);
     }
+
   }, [ id, dispatch ]);
 
   return (
-    <Container ref={tableEl}>
+    <Container>
       {loading && <Loading/>}
       {exam.length > 0
         ? isMobile
