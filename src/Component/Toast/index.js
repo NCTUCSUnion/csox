@@ -37,7 +37,7 @@ const Toast = ({ id, type, isStatic, autoHide, close, children }) => {
       let autoHideDuration = autoHide * 1000;
       setTimeout(handleClose, autoHideDuration);
     }
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <Item colors={palette[type]} onClick={handleClose}>
