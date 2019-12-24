@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { MdFileUpload } from 'react-icons/md';
+import { actionMixin } from '../../Theme/mixins';
 
 export const Navbar = styled.div`
   top: 0;
   width: 100%;
   z-index: 9;
   position: fixed;
+  display: flex;
+  align-items: center;
   text-align: center;
   height: ${props => props.theme.navHeight}px;
   background: ${props => props.theme.colorDefault};
@@ -13,8 +17,9 @@ export const Navbar = styled.div`
 `;
 
 export const Banner = styled.div`
-  left: 0;
-  width: 250px;
+  left: 15px;
+  flex: 1;
+  text-align: left;
   cursor: pointer;
   position: relative;
   font-size: 22px;
@@ -50,11 +55,8 @@ export const Banner = styled.div`
 `;
 
 export const Item = styled.div`
-  top: 0;
-  right: 20px;
   cursor: pointer;
   padding: 0 20px;
-  position: absolute;
   text-align: center;
   height: ${props => props.theme.navHeight}px;
   line-height: ${props => props.theme.navHeight}px;
@@ -63,4 +65,9 @@ export const Item = styled.div`
     background: #eee;
     transition: .2s;
   }
+`;
+
+export const Upload = styled(MdFileUpload)`
+  ${actionMixin};
+  margin-right: 15px;
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FaCloudUploadAlt } from 'react-icons/fa';
+import { MdFileUpload } from 'react-icons/md';
 import Input from '../Input';
 import { COURSE_TYPES } from '../../constant';
 import { closeModal } from '../Modal';
@@ -71,7 +71,7 @@ const UploadModal = () => {
         <Leave onClick={closeModal}/>
         <Title>上傳考古題</Title>
         <Action active={!loading} {...!loading && { onClick: handleUpload }}>
-          {loading ? <Loading/> : <Wrapper><FaCloudUploadAlt/>&nbsp;上傳</Wrapper>}
+          {loading ? <Loading/> : <Wrapper><MdFileUpload/>&nbsp;上傳</Wrapper>}
         </Action>
       </Header>
       <form action=''>

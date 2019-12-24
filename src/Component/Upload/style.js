@@ -167,6 +167,7 @@ export const Container = styled.label`
 `;
 
 export const Description = styled.div`
+  line-height: 1.15;
   width: 100%;
   text-align: center;
 `;

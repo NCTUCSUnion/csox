@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { FaFileAlt, FaUserEdit } from 'react-icons/fa';
 import { MdExpandMore } from 'react-icons/md';
 import { IoMdDownload } from 'react-icons/io';
 import hashToColor from '../Utils/hashToColor';
+import { actionMixin } from '../../Theme/mixins';
 
 export const Container = styled.div`
   margin: 65px 0 0 220px;
@@ -63,23 +64,6 @@ export const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 5px;
-`;
-export const actionMixin = css`
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  padding: 8px;
-  box-sizing: content-box;
-  margin: 0 5px;
-  fill: #555;
-  user-select: none;
-  transition: 0.2s;
-
-  &:active {
-    fill: ${props => props.theme.colorPrimary};
-    background: #eee;
-  }
 `;
 export const Download = styled(IoMdDownload)`
   ${actionMixin}
