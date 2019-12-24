@@ -8,6 +8,23 @@ const initialState = {
   loading: undefined,
 };
 
+const parseType = type => {
+  switch(type) {
+  case 'midterm':
+    return '期中考';
+  case 'midterm2':
+    return '第二次期中考';
+  case 'final':
+    return '期末考';
+  case 'test':
+    return '小考';
+  case 'other':
+    return '其他';
+  default:
+    return type;
+  }
+};
+
 export default (state = initialState, action) => {
   const {course, category, id, exam, teacher } = action;
   let tmp;
@@ -37,7 +54,7 @@ export default (state = initialState, action) => {
       ...state,
       exam: {
         ...state.exam,
-        [id]: exam,
+        [id]: exam.map(paper => ({...paper, type: parseType(paper.type)})),
       },
       loading: false
     };
