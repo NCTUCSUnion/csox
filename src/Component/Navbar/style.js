@@ -33,7 +33,7 @@ export const Banner = styled.div`
     background: ${props => props.theme.colorPrimary};
   }
 
-  &::after {
+  /* &::after {
     top: 3px;
     color: white;
     right: 0;
@@ -41,12 +41,12 @@ export const Banner = styled.div`
     height: 20px;
     content: "beta";
     position: absolute;
-    font-size: 7px;
+    font-size: 10px;
     transform: translate(40%, 15%);
     line-height: 20px;
     border-radius: 1px;
     background-color: #e6326f;
-  }
+  } */
 `;
 
 export const Item = styled.div`
