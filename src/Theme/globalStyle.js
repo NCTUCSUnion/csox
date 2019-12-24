@@ -1,8 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 
-
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
+          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
+          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
+  }
+  @font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
+          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
+          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
+  }
+
   ${normalize}
   * {
     box-sizing: border-box;
@@ -37,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 20px 10px;
     }
     & th {
-      font-weight: bold;
+      font-weight: 500;
       font-size: 1.1rem;
       border-bottom: 2px solid ${props => props.theme.colorPrimary};
     }
@@ -45,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
+    font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
     height: 100%;
   }
 `;
