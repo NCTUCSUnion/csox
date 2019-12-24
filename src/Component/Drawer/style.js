@@ -7,7 +7,7 @@ export const Drawer = styled.div`
   top: 65px;
   left: 0;
   width: 220px;
-  height: calc(100vh - 85px);
+  height: calc(100vh - 65px);
   font-size: 14px;
   transition: .2s;
 
@@ -26,7 +26,7 @@ export const Label = styled.div`
   position: relative;
   font-size: 14px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-weight: bold;
+  font-weight: 500;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);

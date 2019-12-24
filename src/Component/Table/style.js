@@ -5,29 +5,24 @@ import { IoMdDownload } from 'react-icons/io';
 import hashToColor from '../Utils/hashToColor';
 
 export const Container = styled.div`
-  top: 65px;
-  left: 220px;
-  width: calc(100vw - 220px);
-  height: calc(100vh - 65px);
+  margin: 65px 0 0 220px;
   padding: 20px;
-  position: fixed;
   box-sizing: border-box;
   overflow-y: auto;
   text-align: center;
   transition: .2s;
 
   @media (max-width: 576px) {
-    left: 0;
+    margin-left: 0;
     width: 100vw;
     transition: .2s;
   }
 
   ${props => props.theme.isMobile && `
-    left: 0;
+    margin-left: 0;
     width: 100vw;
     transition: .2s;
     padding: 0;
-    height: calc(100vh - 45px);
   `}
 `;
 

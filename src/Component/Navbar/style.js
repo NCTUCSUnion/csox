@@ -4,9 +4,9 @@ export const Navbar = styled.div`
   top: 0;
   width: 100%;
   z-index: 9;
-  position: absolute;
+  position: fixed;
   text-align: center;
-  height: ${props => props.theme.navHeight};
+  height: ${props => props.theme.navHeight}px;
   background: ${props => props.theme.colorDefault};
   box-shadow: ${props => props.theme.shadow};
   line-height: ${props => props.theme.navHeight}px;
@@ -20,7 +20,7 @@ export const Banner = styled.div`
   font-size: 22px;
   font-weight: 500;
   user-select: none;
-  height: ${props => props.theme.navHeight};
+  height: ${props => props.theme.navHeight}px;
 
   &::before {
     top: 5px;
@@ -56,7 +56,7 @@ export const Item = styled.div`
   padding: 0 20px;
   position: absolute;
   text-align: center;
-  height: ${props => props.theme.navHeight};
+  height: ${props => props.theme.navHeight}px;
   line-height: ${props => props.theme.navHeight}px;
 
   &:hover {
