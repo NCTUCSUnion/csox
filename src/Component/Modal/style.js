@@ -22,7 +22,7 @@ export const Main = styled.div`
   bottom: 0;
   outline: 0;
   z-index: 1050;
-  overflow: hidden;
+  overflow: auto;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   display: ${props => props.open ? 'block' : 'none'};
@@ -39,7 +39,7 @@ export const Content = styled.div`
   min-height: 50vh;
   outline: 0;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14); /* youtube box-shadow setting */
-  border-radius: 5px;
+  border-radius: ${props => props.theme.isMobile ? 0 : 5}px;
   background-color: #fff;
   background-clip: padding-box;
   animation: ${fadeInUp} .2s ease-in-out;
@@ -50,7 +50,7 @@ export const Dialog = styled.div`
   margin: 0.5rem auto;
   display: flex;
   position: relative;
-  min-height: calc(100% - (0.5rem * 2));
+  min-height: ${props => props.theme.isMobile ? '100%' : 'calc(100% - (0.5rem * 2))'};
   align-items: center;
   pointer-events: none;
 
