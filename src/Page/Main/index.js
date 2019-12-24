@@ -5,6 +5,7 @@ import Drawer from '../../Component/Drawer';
 import Table from '../../Component/Table';
 import { ToastWrapper } from '../../Component/Toast';
 import IsMobileContext from '../../Theme/IsMobileContext';
+import { DrawerWrapper } from './style';
 
 
 const Main = () => {
@@ -17,7 +18,7 @@ const Main = () => {
 
   return (
     <>
-      {!isMobile && <Drawer/>}
+      {!isMobile && <DrawerWrapper><Drawer/></DrawerWrapper>}
       <Table/>
       <ToastWrapper/>
     </>

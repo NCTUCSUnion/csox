@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MdFileUpload } from 'react-icons/md';
+import { MdFileUpload, MdMenu, MdClose } from 'react-icons/md';
 import { actionMixin } from '../../Theme/mixins';
 
 export const Navbar = styled.div`
@@ -69,5 +69,46 @@ export const Item = styled.div`
 
 export const Upload = styled(MdFileUpload)`
   ${actionMixin};
+  margin-right: 3px;
+`;
+
+export const Menu = styled(MdMenu)`
+  ${actionMixin};
   margin-right: 15px;
+`;
+
+export const Wrapper = styled.div`
+  margin-top: 65px;
+`;
+
+export const Header = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  background: ${props => props.theme.colorPrimary};
+  box-shadow: ${props => props.theme.shadow};
+  font-size: 18px;
+  height: 65px;
+  text-align: center;
+  color: white;
+`;
+
+export const Close = styled(MdClose)`
+  ${actionMixin}
+
+  fill: white;
+  transition: .2s;
+
+  &:hover {
+    cursor: pointer;
+    background: ${props => props.theme.colorDarkenPrimary};
+  }
+
+  &:active {
+    fill: white;
+    background: rgba(256, 256, 256, 0.3);
+  }
 `;

@@ -1,33 +1,18 @@
 import styled from 'styled-components';
 import { FaCaretRight } from 'react-icons/fa';
 
-export const Drawer = styled.div`
-  user-select: none;
-  overflow: auto;
-  position: fixed;
-  top: 65px;
-  left: 0;
-  width: 220px;
-  height: calc(100vh - 65px);
-  font-size: 14px;
-  transition: .2s;
-
-  background-color: #fff;
-  box-shadow: ${props => props.theme.shadow};
-
-  @media (max-width: 576px) {
-    transition: .2s;
-    left: -220px;
-  }
-`;
-
 export const Label = styled.div`
   cursor: pointer;
-  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-left: 20px;
   position: relative;
-  font-size: 14px;
+  font-size: 15px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-weight: 500;
+  height: 50px;
+  line-height: 50px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
@@ -35,8 +20,9 @@ export const Label = styled.div`
 `;
 
 export const List = styled.div`
+  text-align: left;
   cursor: pointer;
-  padding: 8px 30px;
+  padding-left: 30px;
   transition: .2s;
 
   &:hover {
@@ -50,8 +36,26 @@ export const List = styled.div`
   `}
 `;
 
+export const Item = styled.div`
+  height: 40px;
+  line-height: 40px;
+
+  &:active {
+    color: ${props => props.theme.colorPrimary};
+    font-size: 15px;
+    font-weight: 500;
+  }
+`;
+
 export const Caret = styled(FaCaretRight)`
+  margin-right: 4px;
   transition: 0.3s;
+
+  ${props => props.theme.isMobile && `
+    position: absolute;
+    right: 20px;
+  `}
+
   ${props => props.open && `
     transform: rotate(90deg);
   `}

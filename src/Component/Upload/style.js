@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { FaTimes } from 'react-icons/fa';
+import { MdClose } from 'react-icons/md';
+import { actionMixin } from '../../Theme/mixins';
 
 const fadeInLeft = keyframes`
   from {
@@ -34,19 +35,19 @@ export const Title = styled.span`
   font-weight: 500;
 `;
 
-export const Leave = styled(FaTimes)`
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-  padding: 3px;
-  text-align: center;
-  line-height: 24px;
-  border-radius: 24px;
+export const Leave = styled(MdClose)`
+  ${actionMixin}
+  fill: white;
+  transition: .2s;
 
   &:hover {
     cursor: pointer;
-    transition: .2s;
     background: ${props => props.theme.colorDarkenPrimary};
+  }
+
+  &:active {
+    fill: white;
+    background: rgba(256, 256, 256, 0.3);
   }
 `;
 
@@ -56,12 +57,16 @@ export const Action = styled.span`
   height: 65px;
   padding: 0 2%;
   position: absolute;
+  transition: .2s;
 
   ${props => props.active && `
     &:hover {
       cursor: pointer;
-      transition: .2s;
       background: ${props.theme.colorDarkenPrimary};
+    }
+
+    &:active {
+      background: rgba(256, 256, 256, 0.3);
     }
   `}
 `;

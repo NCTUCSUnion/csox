@@ -12,7 +12,6 @@ const hashToColor = text => {
   const len = text.length > 4 ? 4 : text.length;
   for (let i = 0; i < len; i++){
     hash = text.charCodeAt(i) + ((hash << 5) - hash);
-    console.log(text, hash);
   }
 
   return palette[hash % 6];
