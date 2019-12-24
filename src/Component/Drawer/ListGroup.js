@@ -2,8 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FaCaretRight, FaCaretDown } from 'react-icons/fa';
-import { Label, List } from './style';
+import { Label, List, Caret } from './style';
 
 const ListGroup = ({ order, label, list }) => {
   const history = useHistory();
@@ -21,7 +20,7 @@ const ListGroup = ({ order, label, list }) => {
   return (
     <>
       <Label onClick={toggle(order)}>
-        {toggles[order] && (chaos || chooseType === order) ? <FaCaretDown/> : <FaCaretRight/>}
+        <Caret open={toggles[order] && (chaos || chooseType === order)}/>
       &nbsp;{label}
       </Label>
       {toggles[order] && (chaos || chooseType === order) && list.map(

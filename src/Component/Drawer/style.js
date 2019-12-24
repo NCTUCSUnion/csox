@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaCaretRight } from 'react-icons/fa';
 
 export const Drawer = styled.div`
   user-select: none;
@@ -46,5 +47,12 @@ export const List = styled.div`
     color: ${props.theme.colorPrimary};
     font-size: 15px;
     font-weight: 500;
+  `}
+`;
+
+export const Caret = styled(FaCaretRight)`
+  transition: 0.3s;
+  ${props => props.open && `
+    transform: rotate(90deg);
   `}
 `;
