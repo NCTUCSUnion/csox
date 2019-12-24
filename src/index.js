@@ -10,15 +10,22 @@ import theme from './Theme/default';
 import GlobalStyle from './Theme/globalStyle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import IsMobileContext from './Theme/IsMobileContext';
+import isMobileChecker from './Component/Utils/isMobile';
+
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(thunkMiddleware)
 ));
 
+const isMobile = isMobileChecker();
+
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{...theme, isMobile}}>
       <GlobalStyle/>
-      <Router/>
+      <IsMobileContext.Provider value={isMobile}>
+        <Router/>
+      </IsMobileContext.Provider>
     </ThemeProvider>
   </Provider>
   , document.getElementById('root')

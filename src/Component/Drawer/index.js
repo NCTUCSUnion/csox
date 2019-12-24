@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { COURSE_TYPES } from '../../constant';
-import { Drawer as Wrapper } from './style';
 import ListGroup from './ListGroup';
 
 const Drawer = () => {
@@ -17,7 +16,7 @@ const Drawer = () => {
   ));
 
   return (
-    <Wrapper>
+    <>
       {course.map(
         (value, index) => (
           <ListGroup
@@ -27,7 +26,7 @@ const Drawer = () => {
             order={index}/>
         )
       )}
-    </Wrapper>
+    </>
   );
 };
 

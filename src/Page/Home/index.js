@@ -25,7 +25,7 @@ const Home = ({ isRedirect }) => {
       <ToastWrapper/>
       <Title>
         <EN>past exam papers</EN>
-        <ZH>交大資工系考古題系統</ZH>
+        <ZH>交大資工考古題系統</ZH>
       </Title>
       <Login onClick={goToOauth}>登入</Login>
     </>

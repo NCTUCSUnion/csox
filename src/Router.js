@@ -50,7 +50,7 @@ const Router = () => {
         {/* Navbar */}
         <Route path='/main' component={Navbar} />
         {/* Footer */}
-        <Route path='/' component={Footer} />
+        <Route exact path='/' component={Footer} />
         <Switch>
           <ProxyRoute exact path='/' component={Home} authed={isAvailable}/>
           <AuthedRoute path='/main' component={Main} authed={isAvailable}/>
