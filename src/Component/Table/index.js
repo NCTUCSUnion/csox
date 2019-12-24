@@ -36,7 +36,7 @@ const Table = () => {
           ? <MobileExamTable exam={exam}/>
           : <DesktopExamTable exam={exam}/>
         : (loading === undefined || !id)
-          ? <p>請點選左方課程列表</p>
+          ? <p>請點選{`${isMobile ? '上': '左'}`}方課程列表</p>
           : !loading && <p>目前尚無考古題，<Link onClick={() => modal(<UploadModal />)}>歡迎上傳</Link></p>
       }
     </Container>
