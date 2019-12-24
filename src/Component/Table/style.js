@@ -46,7 +46,7 @@ export const Card = styled.div`
   border-bottom: 1px solid #eee;
   background: #fff;
   z-index: 10;
-  transition: margin-bottom 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: margin-bottom 0.2s ease-in-out;
 
   ${props => props.show && `
     margin-bottom: 50px;
@@ -87,7 +87,7 @@ export const Meta = styled.div`
   font-weight: 500;
   text-align: left;
   color: #333;
-  transition: bottom 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: bottom 0.2s ease-in-out;
 
   ${props => props.show ? `
     bottom: -50px;
