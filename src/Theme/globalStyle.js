@@ -63,6 +63,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
   }
+
+  div {
+    -webkit-tap-highlight-color: transparent;
+  }
 `;
 
 export default GlobalStyle;
