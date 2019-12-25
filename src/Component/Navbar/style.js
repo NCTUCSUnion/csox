@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { MdFileUpload, MdMenu, MdClose } from 'react-icons/md';
-import { actionMixin } from '../../Theme/mixins';
+import { actionMixin, textMixin } from '../../Theme/mixins';
 
 export const Navbar = styled.div`
   top: 0;
   width: 100%;
+  min-width: 300px;
   z-index: 9;
   position: fixed;
   display: flex;
@@ -37,6 +38,8 @@ export const Banner = styled.div`
     margin-right: 8px;
     background: ${props => props.theme.colorPrimary};
   }
+
+  ${textMixin}
 
   /* &::after {
     top: 3px;

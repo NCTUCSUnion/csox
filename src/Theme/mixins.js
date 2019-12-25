@@ -17,3 +17,9 @@ export const actionMixin = css`
     background: #eee;
   }
 `;
+
+export const textMixin = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;

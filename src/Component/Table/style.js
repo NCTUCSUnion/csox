@@ -3,7 +3,7 @@ import { FaFileAlt, FaUserEdit } from 'react-icons/fa';
 import { MdExpandMore } from 'react-icons/md';
 import { IoMdDownload } from 'react-icons/io';
 import hashToColor from '../Utils/hashToColor';
-import { actionMixin } from '../../Theme/mixins';
+import { actionMixin, textMixin } from '../../Theme/mixins';
 import { ReactComponent as LoadingComponent } from '../../Svg/loading.svg';
 
 export const Container = styled.div`
@@ -40,6 +40,7 @@ export const Link = styled.a`
 
 export const Main = styled.div`
   position: relative;
+  min-width: 300px;
 `;
 export const Card = styled.div`
   width: 100%;
@@ -98,6 +99,7 @@ export const Meta = styled.div`
 `;
 export const Row = styled.div`
   margin-bottom: 5px;
+  ${textMixin}
 `;
 export const File = styled(FaFileAlt)`
   margin-right: 3px;
