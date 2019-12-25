@@ -16,6 +16,7 @@ import {
   Action,
   InputContainer,
   Loading,
+  Form,
 } from './style';
 import { uploadFile } from '../../Redux/Action/upload';
 
@@ -74,7 +75,7 @@ const UploadModal = () => {
           {loading ? <Loading/> : <Wrapper><MdFileUpload/>&nbsp;上傳</Wrapper>}
         </Action>
       </Header>
-      <form action=''>
+      <Form action=''>
         <InputContainer>
           <Input label='西元年份' autoComplete={false} onChange={handleForm('semester')}/>
           <Input label='類型' autoComplete={['期中考','期末考','小考','第一次期中考','第二次期中考']} onChange={handleForm('type')}/>
@@ -83,7 +84,7 @@ const UploadModal = () => {
           <Input label='老師' autoComplete={teachers} onChange={handleForm('instructor')}/>
         </InputContainer>
         <Uploader onDrop={handleDrop} onDel={handleDel}/>
-      </form>
+      </Form>
     </>
   );
 };

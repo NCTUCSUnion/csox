@@ -15,6 +15,10 @@ const fadeInLeft = keyframes`
 `;
 
 export const Header = styled.div`
+  ${props => props.theme.isMobile && `
+    position: fixed;
+    width: 100%;
+  `}
   display: flex;
   align-items: center;
   color: white;
@@ -73,6 +77,11 @@ export const Action = styled.span`
       background: rgba(256, 256, 256, 0.3);
     }
   `}
+`;
+
+export const Form = styled.form`
+  margin-top: 65px;
+  z-index: -1;
 `;
 
 export const InputContainer = styled.div`
