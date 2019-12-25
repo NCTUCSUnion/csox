@@ -77,7 +77,7 @@ const UploadModal = () => {
       <form action=''>
         <InputContainer>
           <Input label='西元年份' autoComplete={false} onChange={handleForm('semester')}/>
-          <Input label='類型' autoComplete={['期中考','期末考','小考']} onChange={handleForm('type')}/>
+          <Input label='類型' autoComplete={['期中考','期末考','小考','第一次期中考','第二次期中考']} onChange={handleForm('type')}/>
           <Input label='課名' autoComplete={courses.map(c => c.zh)} onChange={handleForm('course')}/>
           <Input label='分類' autoComplete={COURSE_TYPES} onChange={handleForm('category')}/>
           <Input label='老師' autoComplete={teachers} onChange={handleForm('instructor')}/>
