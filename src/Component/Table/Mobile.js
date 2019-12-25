@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import { Main, Card, Header, Title, ChipWrapper, Chip, Download, More, Meta, Row, Provider, File, Actions, } from './style';
-import { download } from '../../Redux/Action/exam';
+import { API_URL } from '../../constant';
+import { toast } from '../Toast';
 
 const PaperBlock = ({ paper }) => {
   const [show, setShow] = useState(false);
-  const handleDownload = () => {
-    download(paper);
+  const handleToast = () => {
+    toast(`已下載 ${paper.filename}`);
   };
   const toggleMeta = () => setShow(show => !show);
 
@@ -22,7 +23,9 @@ const PaperBlock = ({ paper }) => {
             </ChipWrapper>
           </div>
           <Actions>
-            <Download onClick={handleDownload}/>
+            <a href={`${API_URL}/download?eid=${paper.id}&fn=${paper.filename}`} download onClick={handleToast}>
+              <Download/>
+            </a>
             <More onClick={toggleMeta} show={show ? 1 : 0}/>
           </Actions>
         </Header>
