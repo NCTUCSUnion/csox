@@ -4,6 +4,7 @@ import { MdExpandMore } from 'react-icons/md';
 import { IoMdDownload } from 'react-icons/io';
 import hashToColor from '../Utils/hashToColor';
 import { actionMixin } from '../../Theme/mixins';
+import { ReactComponent as LoadingComponent } from '../../Svg/loading.svg';
 
 export const Container = styled.div`
   margin: 65px 0 0 220px;
@@ -120,4 +121,11 @@ export const Chip = styled.span`
 export const Title = styled.div`
   text-align: left;
   margin: 5px 0;
+`;
+
+export const Loading = styled(LoadingComponent)`
+  display: block;
+  margin: 20px auto;
+  width: 50px;
+  fill: ${props => props.theme.colorPrimary};
 `;

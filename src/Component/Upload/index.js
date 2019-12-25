@@ -5,7 +5,6 @@ import { MdFileUpload } from 'react-icons/md';
 import Input from '../Input';
 import { COURSE_TYPES } from '../../constant';
 import { closeModal } from '../Modal';
-import Loading from '../Loading';
 import Uploader from './Uploader';
 import { toast } from '../Toast';
 
@@ -16,6 +15,7 @@ import {
   Wrapper,
   Action,
   InputContainer,
+  Loading,
 } from './style';
 import { uploadFile } from '../../Redux/Action/upload';
 

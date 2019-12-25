@@ -4,10 +4,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
-import Loading from './Component/Loading';
+import { ReactComponent as Loading } from './Svg/loading.svg';
 import Home from './Page/Home';
 import Main from './Page/Main';
 import { checkIsAvailable } from './Redux/Action/auth';
+import styled from 'styled-components';
+
+const StyledLoading = styled(Loading)`
+  display: block;
+  margin: 20px auto;
+  width: 50px;
+  fill: ${props => props.theme.colorPrimary};
+`;
 
 const AuthedRoute = ({ component, authed, location, ...rest }) => {
   if(authed){
@@ -41,7 +49,7 @@ const Router = () => {
   }, [ dispatch ]);
 
   if(loading){
-    return <Loading/>;
+    return <StyledLoading/>;
   }
 
   return(

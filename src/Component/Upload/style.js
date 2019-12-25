@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import { actionMixin } from '../../Theme/mixins';
+import { ReactComponent as LoadingComponent } from '../../Svg/loading.svg';
 
 const fadeInLeft = keyframes`
   from {
@@ -58,6 +59,9 @@ export const Action = styled.span`
   padding: 0 2%;
   position: absolute;
   transition: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ${props => props.active && `
     &:hover {
@@ -184,4 +188,10 @@ export const InvisibleInput = styled.input`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Loading = styled(LoadingComponent)`
+  display: block;
+  width: 40px;
+  fill: #fff;
 `;

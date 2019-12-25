@@ -1,13 +1,12 @@
 import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Link } from './style';
+import { Container, Link, Loading } from './style';
 
 import IsMobileContext from '../../Theme/IsMobileContext';
 import { fetchExam } from '../../Redux/Action/exam';
 import { modal } from '../Modal';
 import UploadModal from '../Upload';
-import Loading from '../Loading';
 import DesktopExamTable from './Desktop';
 import MobileExamTable from './Mobile';
 
