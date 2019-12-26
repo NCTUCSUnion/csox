@@ -4,8 +4,13 @@
   "description": "給交大人的考古題系統，由交大資工系學會維護中...",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon192.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon256.png",
+      "sizes": "256x256",
       "type": "image/png"
     }
   ],
