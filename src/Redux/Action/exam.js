@@ -1,43 +1,58 @@
 import axios from 'axios';
 import { toast } from '../../Component/Toast';
-import { API_URL } from '../../constant';
+import { API_URL, LOCALSTORAGE_EXPIRATION } from '../../constant';
 
 const storage = window.localStorage;
 
 export const fetchCourse = () => async (dispatch) => {
+  const now = new Date().getTime();
   dispatch({type: 'FETCH_COURSE'});
   if (storage.hasOwnProperty('courses')) { // eslint-disable-line no-prototype-builtins
-    dispatch({type: 'RECEIVE_COURSE', course: JSON.parse(storage.getItem('courses'))});
-  } else {
-    axios.get(`${API_URL}/course`).then(
-      res => res.data
-    ).then(
-      course => {
-        dispatch({type: 'RECEIVE_COURSE', course});
-        storage.setItem('courses', JSON.stringify(course));
-      }
-    ).catch(
-      err => console.error(err)
-    );
+    const { data, expiration } = JSON.parse(storage.getItem('courses'));
+    if (expiration && Number(expiration) > now) {
+      dispatch({type: 'RECEIVE_COURSE', course: data});
+      return;
+    }
   }
+
+  axios.get(`${API_URL}/course`).then(
+    res => res.data
+  ).then(
+    course => {
+      dispatch({type: 'RECEIVE_COURSE', course});
+      storage.setItem('courses', JSON.stringify({
+        data: course,
+        expiration: now + LOCALSTORAGE_EXPIRATION,
+      }));
+    }
+  ).catch(
+    err => console.error(err)
+  );
 };
 
 export const fetchTeacher = () => (dispatch) => {
+  const now = new Date().getTime();
   dispatch({type: 'FETCH_TEACHER'});
   if (storage.hasOwnProperty('teachers')) { // eslint-disable-line no-prototype-builtins
-    dispatch({type: 'RECEIVE_TEACHER', teacher: JSON.parse(storage.getItem('teachers'))});
-  } else {
-    axios.get(`${API_URL}/teacher`).then(
-      res => res.data
-    ).then(
-      teacher => {
-        dispatch({type: 'RECEIVE_TEACHER', teacher});
-        storage.setItem('teachers', JSON.stringify(teacher));
-      }
-    ).catch(
-      err => console.error(err)
-    );
+    const { data, expiration } = JSON.parse(storage.getItem('teachers'));
+    if (expiration && Number(expiration) > now) {
+      dispatch({type: 'RECEIVE_TEACHER', teacher: data});
+      return;
+    }
   }
+  axios.get(`${API_URL}/teacher`).then(
+    res => res.data
+  ).then(
+    teacher => {
+      dispatch({type: 'RECEIVE_TEACHER', teacher});
+      storage.setItem('teachers', JSON.stringify({
+        data: teacher,
+        expiration: now + LOCALSTORAGE_EXPIRATION,
+      }));
+    }
+  ).catch(
+    err => console.error(err)
+  );
 };
 
 export const fetchExam = id => async (dispatch, getState) => {

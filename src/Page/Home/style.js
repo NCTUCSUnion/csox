@@ -51,9 +51,10 @@ export const Login = styled.div`
   font-weight: 400;
   line-height: 45px;
   user-select: none;
+  transition: 0.2s;
   cursor: pointer;
 
   &:hover {
-    color: white;
+    background: ${props => props.theme.colorDarkenPrimary};
   }
 `;

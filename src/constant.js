@@ -10,3 +10,5 @@ export const COURSE_TYPES = [
 ];
 
 export const API_URL = 'https://csunion.nctu.me/_api/oldexam';
+
+export const LOCALSTORAGE_EXPIRATION = 30 * 24 * 60 * 60 * 1000; // 30 days
