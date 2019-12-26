@@ -12,6 +12,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import IsMobileContext from './Theme/IsMobileContext';
 import isMobileChecker from './Component/Utils/isMobile';
+import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(thunkMiddleware)
@@ -30,3 +31,5 @@ ReactDOM.render(
   </Provider>
   , document.getElementById('root')
 );
+
+serviceWorker.register();
