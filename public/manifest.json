@@ -9,8 +9,8 @@
       "type": "image/png"
     },
     {
-      "src": "favicon256.png",
-      "sizes": "256x256",
+      "src": "favicon512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
