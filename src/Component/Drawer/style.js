@@ -24,6 +24,7 @@ export const List = styled.div`
   cursor: pointer;
   padding-left: 30px;
   transition: .2s;
+  font-size: 15px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
@@ -31,7 +32,6 @@ export const List = styled.div`
 
   ${props => props.active && `
     color: ${props.theme.colorPrimary};
-    font-size: 15px;
     font-weight: 500;
   `}
 `;
@@ -41,8 +41,7 @@ export const Item = styled.div`
   line-height: 40px;
 
   &:active {
-    color: ${props => props.theme.colorPrimary};
-    font-size: 15px;
+    /* color: ${props => props.theme.colorPrimary}; */
     font-weight: 500;
   }
 `;
