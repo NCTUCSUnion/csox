@@ -28,7 +28,7 @@
 
 |timestamp|tag|description|
 |:-:|:-:|-|
-|2019.12/24|v2.0.0|mobile version ![](https://raw.githubusercontent.com/jmhobbs/cultofthepartyparrot.com/master/parrots/thumbsupparrot.gif)|
+|2019.12/24|v2.0.0|mobile version <img src='https://cultofthepartyparrot.com/parrots/hd/thumbsupparrot.gif' height='35px'/>|
 |2019.11/23|v1.1.0|Transfer repo to [NCTUCSUnion / csox](https://github.com/NCTUCSUnion/csox)|
-|2019.11/17 |-|Refactor [#7](https://github.com/maxam2017/csox/pull/7) [#8](https://github.com/maxam2017/csox/pull/8) ![](https://raw.githubusercontent.com/jmhobbs/cultofthepartyparrot.com/master/parrots/angelparrot.gif)
-|2019.11/04|v1.0.0 beta|beta版上線啦 ![](https://raw.githubusercontent.com/jmhobbs/cultofthepartyparrot.com/master/parrots/beerparrot.gif)
+|2019.11/17 |-|Refactor [#7](https://github.com/maxam2017/csox/pull/7) [#8](https://github.com/maxam2017/csox/pull/8) <img src='https://cultofthepartyparrot.com/parrots/hd/angelparrot.gif' height='35px'/>
+|2019.11/04|v1.0.0 beta|beta版上線啦 <img src='https://cultofthepartyparrot.com/parrots/hd/beerparrot.gif' height='35px'/>
