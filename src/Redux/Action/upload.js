@@ -39,7 +39,7 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
       dispatch({type: 'UPLOAD/REQUEST'});
 
       axios(options(data)).then(res => {
-        if (res.statusText === 'OK') {
+        if (res.status === 200) {
           dispatch({type: 'UPLOAD/SUCCESS'});
           toast('上傳成功');
           closeModal();
