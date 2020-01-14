@@ -80,7 +80,7 @@ export const Action = styled.span`
 `;
 
 export const Form = styled.form`
-  margin-top: 65px;
+  margin-top: ${props => props.theme.isMobile ? 65 : 0}px;
   z-index: -1;
 `;
 
