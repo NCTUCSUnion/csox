@@ -32,7 +32,7 @@ const ListGroup = ({ order, label, list }) => {
             key={index}
             active={id === `${cos.id}`}
             onClick={goToExamPage(cos.id)}>
-            <Item>{cos.zh}</Item>
+            <Item title={cos.zh}>{cos.zh}</Item>
           </List>
         )
       )}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close } from './style';
+import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close, Login } from './style';
 
 import {ModalWrapper, modal} from '../Modal';
 import UploadModal from '../Upload';
@@ -8,6 +8,12 @@ import Drawer from '../Drawer';
 import { closeModal } from '../Modal';
 
 import IsMobileContext from '../../Theme/IsMobileContext';
+import { API_URL } from '../../constant';
+import { useSelector } from 'react-redux';
+
+const goToOauth = () => {
+  window.location.href = (`${API_URL}/login`);
+};
 
 const Banner = () => {
   const history = useHistory();
@@ -30,6 +36,7 @@ const DrawerModal = () => (
 
 const Navbar = () => {
   const isMobile = useContext(IsMobileContext);
+  const isAvailable = useSelector(state => state.auth.available);
 
   return (
     <Main>
@@ -38,6 +45,11 @@ const Navbar = () => {
       {isMobile
         ? <Upload onClick={() => modal(<UploadModal />)}/>
         : <Item onClick={() => modal(<UploadModal />)}>上傳</Item>}
+      {!isAvailable && (
+        isMobile
+          ? <Login onClick={goToOauth}/>
+          : <Item onClick={goToOauth}>登入</Item>
+      )}
       {isMobile && <Menu onClick={() => modal(<DrawerModal/>)}/>}
     </Main>
   );

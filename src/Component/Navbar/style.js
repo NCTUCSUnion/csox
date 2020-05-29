@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MdFileUpload, MdMenu, MdClose } from 'react-icons/md';
+import { AiOutlineLogin } from 'react-icons/ai';
 import { actionMixin, textMixin } from '../../Theme/mixins';
 
 export const Navbar = styled.div`
@@ -71,6 +72,11 @@ export const Item = styled.div`
 `;
 
 export const Upload = styled(MdFileUpload)`
+  ${actionMixin};
+  margin-right: 3px;
+`;
+
+export const Login = styled(AiOutlineLogin)`
   ${actionMixin};
   margin-right: 3px;
 `;

@@ -3,11 +3,17 @@ import React, { useState } from 'react';
 import { Main, Card, Header, Title, ChipWrapper, Chip, Download, More, Meta, Row, Provider, File, Actions, } from './style';
 import { API_URL } from '../../constant';
 import { toast } from '../Toast';
+import { useSelector } from 'react-redux';
 
 const PaperBlock = ({ paper }) => {
+  const isAvailable = useSelector(state => state.auth.available);
   const [show, setShow] = useState(false);
   const handleToast = () => {
-    toast(`已下載 ${paper.filename}`);
+    if (isAvailable) {
+      toast(`已下載 ${paper.filename}`);
+    } else {
+      toast('請點擊右上方登入', {type: 'Info'});
+    }
   };
   const toggleMeta = () => setShow(show => !show);
 
@@ -23,7 +29,12 @@ const PaperBlock = ({ paper }) => {
             </ChipWrapper>
           </div>
           <Actions>
-            <a href={`${API_URL}/download?eid=${paper.id}&fn=${paper.filename}`} download onClick={handleToast}>
+            <a
+              {...isAvailable && {
+                href: `${API_URL}/download?eid=${paper.id}&fn=${paper.filename}`,
+                download: true
+              }}
+              onClick={handleToast}>
               <Download/>
             </a>
             <More onClick={toggleMeta} show={show ? 1 : 0}/>

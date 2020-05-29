@@ -33,28 +33,41 @@ export const ZH = styled.h1`
   line-height: 30px;
 `;
 
-export const Login = styled.div`
+export const ButtonWrapper = styled.div`
   position: absolute;
   right: ${props => props.theme.isMobile ? '50%' : '20vw'};
   bottom: ${props => props.theme.isMobile ? '30%' : '33vh'};
   ${props => props.theme.isMobile && `
     transform: translate(50%, -50%);
   `}
-
-  width: ${props => props.theme.isMobile ? '80%' : '150px'};
-  height: 45px;
-  border-radius: 2px;
-  background: ${props => props.theme.colorPrimary};
-  box-shadow: ${props => props.theme.shadow};
   color: #fff;
   text-align: center;
   font-weight: 400;
   line-height: 45px;
   user-select: none;
-  transition: 0.2s;
+`;
+
+const Button = styled.div`
   cursor: pointer;
+  margin-bottom: 15px;
+  width: ${props => props.theme.isMobile ? '80vw' : '150px'};
+  height: 45px;
+  border-radius: 2px;
+  box-shadow: ${props => props.theme.shadow};
+  transition: 0.2s;
+`;
+export const Login = styled(Button)`
+  background: ${props => props.theme.colorPrimary};
 
   &:hover {
     background: ${props => props.theme.colorDarkenPrimary};
+  }
+`;
+
+export const Guest = styled(Button)`
+  background: #718096;
+
+  &:hover {
+    background: #4A5568;
   }
 `;

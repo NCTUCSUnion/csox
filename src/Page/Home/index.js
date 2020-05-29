@@ -1,33 +1,25 @@
-import React, {useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
-import { Title, EN, ZH, Login } from './style';
-import { toast, ToastWrapper } from '../../Component/Toast';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Title, EN, ZH, Login, ButtonWrapper, Guest } from './style';
 import { API_URL } from '../../constant';
 
-const Home = ({ isRedirect }) => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if(location.state){
-      toast('請先登入', {type: 'Info'});
-    }
-    else if(isRedirect === false){
-      toast('登入失敗', {type: 'Danger'});
-    }
-  });
-
+const Home = () => {
   const goToOauth = () => {
     window.location.href = (`${API_URL}/login`);
   };
 
   return(
     <>
-      <ToastWrapper/>
       <Title>
         <EN>past exam papers</EN>
         <ZH>交大資工考古題系統</ZH>
       </Title>
-      <Login onClick={goToOauth}>登入</Login>
+      <ButtonWrapper>
+        <Login onClick={goToOauth}>登入</Login>
+        <Link to='/main'>
+          <Guest>訪客參觀</Guest>
+        </Link>
+      </ButtonWrapper>
     </>
   );
 };

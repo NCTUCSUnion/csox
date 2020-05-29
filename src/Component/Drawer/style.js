@@ -39,9 +39,12 @@ export const List = styled.div`
 export const Item = styled.div`
   height: 40px;
   line-height: 40px;
+  padding-right: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   &:active {
-    /* color: ${props => props.theme.colorPrimary}; */
     font-weight: 500;
   }
 `;
