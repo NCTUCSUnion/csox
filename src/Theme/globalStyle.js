@@ -2,25 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
-          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
-          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
-  }
-  @font-face {
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-display: swap;
-    font-weight: 500;
-    src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
-          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
-          url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
-  }
-
   ${normalize}
   * {
     box-sizing: border-box;
