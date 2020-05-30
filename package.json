@@ -5,7 +5,6 @@
   "homepage": "https://pastexam.csunion.nctu.me",
   "dependencies": {
     "axios": "^0.19.2",
-    "polished": "^3.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.8.0",
