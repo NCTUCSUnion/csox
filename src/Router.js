@@ -1,14 +1,31 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import Loadable from 'react-loadable';
 
-import Navbar from './Component/Navbar';
-import Footer from './Component/Footer';
 import { ReactComponent as Loading } from './Svg/loading.svg';
-import Home from './Page/Home';
-import Main from './Page/Main';
 import { checkIsAvailable } from './Redux/Action/auth';
 import styled from 'styled-components';
+
+const Navbar = Loadable({
+  loader: () => import('./Component/Navbar'),
+  loading: () => null,
+});
+
+const Footer = Loadable({
+  loader: () => import('./Component/Footer'),
+  loading: () => null,
+});
+
+const Home = Loadable({
+  loader: () => import('./Page/Home'),
+  loading: () => null,
+});
+
+const Main = Loadable({
+  loader: () => import('./Page/Main'),
+  loading: () => null,
+});
 
 const StyledLoading = styled(Loading)`
   display: block;
