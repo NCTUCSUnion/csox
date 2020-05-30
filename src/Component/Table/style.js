@@ -10,19 +10,19 @@ export const Container = styled.div`
   margin: 65px 0 0 220px;
   padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow-y: hidden;
   text-align: center;
   transition: .2s;
 
   @media (max-width: 576px) {
     margin-left: 0;
-    width: 100vw;
+    width: 100%;
     transition: .2s;
   }
 
   ${props => props.theme.isMobile && `
     margin-left: 0;
-    width: 100vw;
+    width: 100%;
     transition: .2s;
     padding: 0;
   `}

@@ -42,14 +42,14 @@ const Navbar = () => {
     <Main>
       <ModalWrapper />
       <Banner/>
-      {isMobile
-        ? <Upload onClick={() => modal(<UploadModal />)}/>
-        : <Item onClick={() => modal(<UploadModal />)}>上傳</Item>}
-      {!isAvailable && (
-        isMobile
+      {!isAvailable
+        ? isMobile
           ? <Login onClick={goToOauth}/>
           : <Item onClick={goToOauth}>登入</Item>
-      )}
+        : isMobile
+          ? <Upload onClick={() => modal(<UploadModal />)}/>
+          : <Item onClick={() => modal(<UploadModal />)}>上傳</Item>
+      }
       {isMobile && <Menu onClick={() => modal(<DrawerModal/>)}/>}
     </Main>
   );
