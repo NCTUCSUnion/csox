@@ -9,6 +9,6 @@ export const COURSE_TYPES = [
   '考資工研究所'
 ];
 
-export const API_URL = 'https://csunion.nctu.me/_api/oldexam';
+export const API_URL = 'https://nctucsunion.me/_api/oldexam';
 
 export const LOCALSTORAGE_EXPIRATION = 30 * 24 * 60 * 60 * 1000; // 30 days

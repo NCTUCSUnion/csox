@@ -10,7 +10,7 @@
     交大資工考古題系統 | NCTU CS
     <br />
     <br />
-    <a href="https://pastexam.csunion.nctu.me/">Visis Website</a>
+    <a href="https://pastexam.nctucsunion.me/">Visis Website</a>
     ·
     <a href="https://github.com/maxam2017/csox/issues">Report Bug</a>
     ·
