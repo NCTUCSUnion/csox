@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import {fetchCourse, fetchTeacher} from '../../Redux/Action/exam';
+import { fetchCourse, fetchTeacher } from '../../Redux/Action/exam';
 import Drawer from '../../Component/Drawer';
 import Table from '../../Component/Table';
 import { ToastWrapper } from '../../Component/Toast';
@@ -16,13 +16,13 @@ const Main = () => {
     dispatch(checkIsAvailable());
     dispatch(fetchCourse());
     dispatch(fetchTeacher());
-  }, [ dispatch ]);
+  }, [dispatch]);
 
   return (
     <>
-      {!isMobile && <DrawerWrapper><Drawer/></DrawerWrapper>}
-      <Table/>
-      <ToastWrapper/>
+      {!isMobile && <DrawerWrapper><Drawer /></DrawerWrapper>}
+      <Table />
+      <ToastWrapper />
     </>
   );
 };

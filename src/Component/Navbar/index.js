@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close, Login } from './style';
+import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close, Login, XmasBanner, Gap } from './style';
 
-import {ModalWrapper, modal} from '../Modal';
+import { ModalWrapper, modal } from '../Modal';
 import UploadModal from '../Upload';
 import Drawer from '../Drawer';
 import { closeModal } from '../Modal';
@@ -10,6 +10,8 @@ import { closeModal } from '../Modal';
 import IsMobileContext from '../../Theme/IsMobileContext';
 import { API_URL } from '../../constant';
 import { useSelector } from 'react-redux';
+import isXmas from '../../Component/Utils/isXmas2020'
+const xmas = isXmas();
 
 const goToOauth = () => {
   window.location.href = (`${API_URL}/login`);
@@ -25,11 +27,11 @@ const Banner = () => {
 const DrawerModal = () => (
   <>
     <Header>
-      <Close onClick={closeModal}/>
+      <Close onClick={closeModal} />
       課程列表
     </Header>
     <Wrapper>
-      <Drawer/>
+      <Drawer />
     </Wrapper>
   </>
 );
@@ -41,16 +43,17 @@ const Navbar = () => {
   return (
     <Main>
       <ModalWrapper />
-      <Banner/>
+      <Banner />
+      {xmas && (isMobile ? <Gap /> : <XmasBanner />)}
       {!isAvailable
         ? isMobile
-          ? <Login onClick={goToOauth}/>
+          ? <Login onClick={goToOauth} />
           : <Item onClick={goToOauth}>登入</Item>
         : isMobile
-          ? <Upload onClick={() => modal(<UploadModal />)}/>
+          ? <Upload onClick={() => modal(<UploadModal />)} />
           : <Item onClick={() => modal(<UploadModal />)}>上傳</Item>
       }
-      {isMobile && <Menu onClick={() => modal(<DrawerModal/>)}/>}
+      {isMobile && <Menu onClick={() => modal(<DrawerModal />)} />}
     </Main>
   );
 };

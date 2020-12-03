@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { FaCaretRight } from 'react-icons/fa';
 
+export const Wrapper = styled.div`
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  background: ${props => props.theme.xmas ? 'rgb(83, 83, 83)' : 'white'};
+`;
+
 export const Label = styled.div`
   cursor: pointer;
   display: flex;

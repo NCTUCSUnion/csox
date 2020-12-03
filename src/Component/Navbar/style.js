@@ -4,6 +4,7 @@ import { AiOutlineLogin } from 'react-icons/ai';
 import { actionMixin, textMixin } from '../../Theme/mixins';
 
 export const Navbar = styled.div`
+  left: 0;
   top: 0;
   width: 100%;
   min-width: 300px;
@@ -12,15 +13,15 @@ export const Navbar = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: space-between;
   height: ${props => props.theme.navHeight}px;
-  background: ${props => props.theme.colorDefault};
+  background: ${props => props.theme.xmas ? props.theme.colorPrimary : props.theme.colorDefault};
   box-shadow: ${props => props.theme.shadow};
   line-height: ${props => props.theme.navHeight}px;
 `;
 
 export const Banner = styled.div`
   left: 15px;
-  flex: 1;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -28,6 +29,7 @@ export const Banner = styled.div`
   font-weight: 500;
   user-select: none;
   height: ${props => props.theme.navHeight}px;
+  color: ${props => props.theme.xmas ? 'rgb(255, 255, 255);' : 'black'};
 
   &::before {
     top: 5px;
@@ -37,7 +39,7 @@ export const Banner = styled.div`
     display: inline-block;
     position: relative;
     margin-right: 8px;
-    background: ${props => props.theme.colorPrimary};
+    background: ${props => props.theme.xmas ? 'red' : props.theme.colorPrimary};
   }
 
   ${textMixin}
@@ -64,9 +66,10 @@ export const Item = styled.div`
   text-align: center;
   height: ${props => props.theme.navHeight}px;
   line-height: ${props => props.theme.navHeight}px;
+  color: ${props => props.theme.xmas ? 'white' : 'black'};
 
   &:hover {
-    background: #eee;
+    background: ${props => props.theme.xmas ? props.theme.colorDarkenPrimary : '#eee'};
     transition: .2s;
   }
 `;
@@ -74,16 +77,19 @@ export const Item = styled.div`
 export const Upload = styled(MdFileUpload)`
   ${actionMixin};
   margin-right: 3px;
+  fill: ${props => props.theme.xmas ? 'white' : '#444'};
 `;
 
 export const Login = styled(AiOutlineLogin)`
   ${actionMixin};
   margin-right: 3px;
+  fill: ${props => props.theme.xmas ? 'white' : '#444'};
 `;
 
 export const Menu = styled(MdMenu)`
   ${actionMixin};
   margin-right: 15px;
+  fill: ${props => props.theme.xmas ? 'white' : '#444'};
 `;
 
 export const Wrapper = styled.div`
@@ -120,4 +126,19 @@ export const Close = styled(MdClose)`
     fill: white;
     background: rgba(256, 256, 256, 0.3);
   }
+`;
+
+export const XmasBanner = styled.div`
+  display: flex;
+  flex: 1;
+  align-self: flex-start;
+  height: 110px;
+  margin: 0px 25px;
+  background-image: url(/banner.png);
+  background-repeat: repeat-x;
+`;
+
+export const Gap = styled.div`
+  display: flex;
+  flex: 1;
 `;

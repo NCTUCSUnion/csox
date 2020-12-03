@@ -80,8 +80,10 @@ export const Action = styled.span`
 `;
 
 export const Form = styled.form`
-  margin-top: ${props => props.theme.isMobile ? 65 : 0}px;
+  margin-top: ${props => props.theme.isMobile ? 65 : 25}px;
   z-index: -1;
+  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
 `;
 
 export const InputContainer = styled.div`
@@ -178,7 +180,7 @@ export const Container = styled.label`
   min-height: 180px;
   max-height: 50vh;
   width: 90%;
-  margin: 10px auto 30px;
+  margin: 50px auto;
   border: 2px dashed #ccc;
   border-radius: 5px;
   transition: .2s;
@@ -203,4 +205,10 @@ export const Loading = styled(LoadingComponent)`
   display: block;
   width: 40px;
   fill: #fff;
+`;
+
+export const ThemeWrapper = styled.div`
+  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  bottom: 0px;
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Link, Loading } from './style';
+import { Container, Link, Loading, Paragraph } from './style';
 
 import IsMobileContext from '../../Theme/IsMobileContext';
 import { fetchExam } from '../../Redux/Action/exam';
@@ -38,8 +38,8 @@ const Table = () => {
           ? <React.Suspense fallback={<></>}><MobileExamTable exam={exam}/></React.Suspense>
           : <React.Suspense fallback={<></>}><DesktopExamTable exam={exam}/></React.Suspense>
         : (loading === undefined || !id)
-          ? <p>請點選{`${isMobile ? '上': '左'}`}方課程列表</p>
-          : !loading && <p>目前尚無考古題，<Link onClick={() => modal(<UploadModal />)}>歡迎上傳</Link></p>
+          ? <Paragraph>請點選{`${isMobile ? '上': '左'}`}方課程列表</Paragraph>
+          : !loading && <Paragraph>目前尚無考古題，<Link onClick={() => modal(<UploadModal />)}>歡迎上傳</Link></Paragraph>
       }
     </Container>
   );

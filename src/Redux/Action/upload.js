@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { toast } from '../../Component/Toast';
-import { closeModal } from '../../Component/Modal';
+import { closeModal, modal } from '../../Component/Modal';
 import { API_URL } from '../../constant';
+import isXmas from '../../Component/Utils/isXmas2020'
+import React from 'react';
+import EventModal from '../../Component/Event';
+
+axios.defaults.withCredentials = true;
+
+const xmas = isXmas();
 
 const config = {
   responseType: 'blob'
@@ -20,8 +27,8 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
     toast('無效的使用者，請重新登入');
   }
 
-  let {name, preview} = file;
-  dispatch({type: 'GET_BLOB'});
+  let { name, preview } = file;
+  dispatch({ type: 'GET_BLOB' });
 
   axios.get(preview, config)
     .then(res => res.data)
@@ -36,20 +43,23 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
       data.append('type', category);
       data.append('uid', uid);
 
-      dispatch({type: 'UPLOAD/REQUEST'});
+      dispatch({ type: 'UPLOAD/REQUEST' });
 
       axios(options(data)).then(res => {
         if (res.status === 200) {
-          dispatch({type: 'UPLOAD/SUCCESS'});
+          dispatch({ type: 'UPLOAD/SUCCESS' });
           toast('上傳成功');
           closeModal();
+          if (xmas) {
+            modal(<EventModal />);
+          }
         } else {
-          dispatch({type: 'UPLOAD/FAILED'});
-          toast('上傳失敗', {type: 'Danger'});
+          dispatch({ type: 'UPLOAD/FAILED' });
+          toast('上傳失敗', { type: 'Danger' });
         }
       }).catch(() => {
-        dispatch({type: 'UPLOAD/FAILED'});
-        toast('上傳失敗', {type: 'Danger'});
+        dispatch({ type: 'UPLOAD/FAILED' });
+        toast('上傳失敗', { type: 'Danger' });
       });
     }).catch(err => console.log(err));
 };

@@ -11,7 +11,8 @@ export const DrawerWrapper = styled.div`
   font-size: 14px;
   transition: 0.2s;
 
-  background-color: #fff;
+  background: ${props => props.theme.xmas ? 'rgb(83, 83, 83)' : 'white'};
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
   box-shadow: ${props => props.theme.shadow};
 
   @media (max-width: 576px) {

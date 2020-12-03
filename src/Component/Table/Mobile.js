@@ -19,7 +19,7 @@ const PaperBlock = ({ paper }) => {
 
   return (
     <Main>
-      <Card show={show ? 1 : 0}>
+      <Card show={show}>
         <Header>
           <div>
             <Title>{paper.instructor}</Title>
@@ -37,11 +37,11 @@ const PaperBlock = ({ paper }) => {
               onClick={handleToast}>
               <Download/>
             </a>
-            <More onClick={toggleMeta} show={show ? 1 : 0}/>
+            <More onClick={toggleMeta} show={show}/>
           </Actions>
         </Header>
       </Card>
-      <Meta show={show ? 1 : 0}>
+      <Meta show={show}>
         <Row><File/>{paper.filename}</Row>
         <Row><Provider/>{paper.provider}</Row>
       </Meta>

@@ -15,8 +15,8 @@ const Router = () => (
         {/* Footer */}
         <Route exact path='/' render={() => <Footer/>} />
         <Switch>
-          <Route exact path='/' render={() => <Home/>}/>
-          <Route path='/main' render={() => <Main/>}/>
+          <Route exact path='/' render={() => <Home />}/>
+          <Route path='/main' render={() => <Main />}/>
         </Switch>
       </>
     </BrowserRouter>

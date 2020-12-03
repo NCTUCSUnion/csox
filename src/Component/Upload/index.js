@@ -17,6 +17,7 @@ import {
   InputContainer,
   Loading,
   Form,
+  ThemeWrapper
 } from './style';
 import { uploadFile } from '../../Redux/Action/upload';
 
@@ -67,7 +68,7 @@ const UploadModal = () => {
   };
 
   return (
-    <>
+    <ThemeWrapper>
       <Header>
         <Leave onClick={closeModal}/>
         <Title>上傳考古題</Title>
@@ -85,7 +86,7 @@ const UploadModal = () => {
         </InputContainer>
         <Uploader onDrop={handleDrop} onDel={handleDel}/>
       </Form>
-    </>
+    </ThemeWrapper>
   );
 };
 

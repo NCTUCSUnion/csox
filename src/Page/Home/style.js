@@ -18,7 +18,7 @@ export const Title = styled.div`
 
 export const EN = styled.div`
   display: ${props => props.theme.isMobile ? 'none': 'block'};
-  color: rgb(83, 83, 83);
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
   font-size: 2rem;
   font-weight: 400;
   line-height: 30px;
@@ -27,7 +27,7 @@ export const EN = styled.div`
 
 export const ZH = styled.h1`
   margin-left: ${props => props.theme.isMobile ? 0 : 30}px;
-  color: rgb(83, 83, 83);
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
   font-size: ${props => props.theme.isMobile ? '2rem' : '3.2rem'};
   font-weight: 500;
   line-height: 30px;
@@ -36,7 +36,7 @@ export const ZH = styled.h1`
 export const ButtonWrapper = styled.div`
   position: absolute;
   right: ${props => props.theme.isMobile ? '50%' : '20vw'};
-  bottom: ${props => props.theme.isMobile ? '30%' : '33vh'};
+  bottom: ${props => props.theme.isMobile ? '25%' : '33vh'};
   ${props => props.theme.isMobile && `
     transform: translate(50%, -50%);
   `}
@@ -70,4 +70,24 @@ export const Guest = styled(Button)`
   &:hover {
     background: #4A5568;
   }
+`;
+
+export const XmasLogo = styled.div`
+  ${props => props.theme.isMobile ?
+  `
+    bottom: 10px;
+    right: 0px;
+    height: 180px;
+    width: 180px;
+  ` : 
+  `
+    left: calc(10vw + 265px);
+    top: calc((100vh - 20px - 25vh) / 2 - 200px);
+    height: 256px;
+    width: 256px;
+  `}
+  background-image: url(/xmas_logo_256.png);
+  background-size: 100%;
+  opacity: 0.5;
+  position: absolute;
 `;

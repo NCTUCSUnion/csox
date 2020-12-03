@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Wrapper } from './style';
 
 import { COURSE_TYPES } from '../../constant';
 import ListGroup from './ListGroup';
@@ -17,15 +18,17 @@ const Drawer = () => {
 
   return (
     <>
-      {course.map(
-        (value, index) => (
-          <ListGroup
-            label={value.type}
-            list={value.course}
-            key={index}
-            order={index}/>
-        )
-      )}
+      <Wrapper>
+        {course.map(
+          (value, index) => (
+            <ListGroup
+              label={value.type}
+              list={value.course}
+              key={index}
+              order={index} />
+          )
+        )}
+      </Wrapper>
     </>
   );
 };

@@ -10,22 +10,24 @@ const ExamTable = ({ exam }) => {
 
   return (
     <table>
-      <Header/>
+      <Header />
       <tbody>
-        {exam.map(e =>
-          <tr key={e.id} onClick={() => {
-            if (!isAvailable) {
-              toast('請點擊右上方登入', {type: 'Info'});
-              return;
-            }
-            download(e);
-          }}>
-            <TD>{e.semester}</TD>
-            <TD>{e.type}</TD>
-            <TD>{e.instructor}</TD>
-            <TD>{e.filename}</TD>
-          </tr>
-        )}
+        {
+          exam.map(e =>
+            <tr key={e.id} onClick={() => {
+              if (!isAvailable) {
+                toast('請點擊右上方登入', { type: 'Info' });
+                return;
+              }
+              download(e);
+            }}>
+              <TD>{e.semester}</TD>
+              <TD>{e.type}</TD>
+              <TD>{e.instructor}</TD>
+              <TD>{e.filename}</TD>
+            </tr>
+          )
+        }
       </tbody>
     </table>
   );

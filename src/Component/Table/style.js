@@ -26,6 +26,8 @@ export const Container = styled.div`
     transition: .2s;
     padding: 0;
   `}
+
+  z-index: 1;
 `;
 
 export const TD = styled.td `
@@ -42,6 +44,7 @@ export const Main = styled.div`
   position: relative;
   min-width: 300px;
 `;
+
 export const Card = styled.div`
   width: 100%;
   padding: 15px 10px 15px 15px;
@@ -49,27 +52,36 @@ export const Card = styled.div`
   background: #fff;
   z-index: 10;
   transition: margin-bottom 0.2s ease-in-out;
+  box-shadow: ${props => props.theme.xmas ? '0 0 0 15px rgb(65, 65, 65) inset' : '0 0 0'};
 
   ${props => props.show && `
     margin-bottom: 50px;
   `}
 `;
+
 export const Header = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   font-size: 16px;
   height: 50px;
+  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
 `;
+
 export const Actions = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
   padding-right: 5px;
+  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
 `;
+
 export const Download = styled(IoMdDownload)`
   ${actionMixin}
+  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
 `;
+
 export const More = styled(MdExpandMore)`
   ${props => props.show && `
     transform: rotate(-180deg);
@@ -77,41 +89,47 @@ export const More = styled(MdExpandMore)`
   `}
 
   ${actionMixin}
+  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
 `;
+
 export const Meta = styled.div`
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   height: 50px;
   width: 100%;
-  background: #fafafa;
+  background: ${props => props.theme.xmas ? 'rgb(120, 120, 120)' : '#fafafa'};
   padding: 10px 10px 10px 15px;
   font-size: 12px;
   font-weight: 500;
   text-align: left;
   color: #333;
   transition: bottom 0.2s ease-in-out;
+  box-shadow: ${props => props.theme.xmas ? '0 0 0 15px rgb(120, 120, 120) inset' : '0 0 0'};
 
-  ${props => props.show ? `
-    bottom: -50px;
-  ` : `
-    bottom: 0;
-  `}
+  bottom: -50px;
 `;
+
 export const Row = styled.div`
   margin-bottom: 5px;
   ${textMixin}
+  background: ${props => props.theme.xmas ? 'rgb(120, 120, 120)' : 'white'};
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
 `;
+
 export const File = styled(FaFileAlt)`
   margin-right: 3px;
-  fill: #444;
+  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
 `;
+
 export const Provider = styled(FaUserEdit)`
   margin-right: 3px;
-  fill: #444;
+  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
 `;
+
 export const ChipWrapper = styled.div`
   height: 20px;
 `;
+
 export const Chip = styled.span`
   margin-right: 6px;
   padding: 1px 5px;
@@ -120,6 +138,7 @@ export const Chip = styled.span`
   background: ${props => hashToColor(props.children)};
   color: #fff;
 `;
+
 export const Title = styled.div`
   text-align: left;
   margin: 5px 0;
@@ -130,4 +149,12 @@ export const Loading = styled(LoadingComponent)`
   margin: 20px auto;
   width: 50px;
   fill: ${props => props.theme.colorPrimary};
+`;
+
+export const Paragraph = styled.p`
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+`;
+
+export const TH = styled.th`
+  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
 `;
