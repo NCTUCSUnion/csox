@@ -30,6 +30,7 @@ export const Header = styled.div`
   font-weight: 500;
   background: ${props => props.theme.colorPrimary};
   box-shadow: ${props => props.theme.shadow};
+  z-index: 1082;
 `;
 export const Title = styled.span`
   color: white;

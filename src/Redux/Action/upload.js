@@ -2,13 +2,13 @@ import axios from 'axios';
 import { toast } from '../../Component/Toast';
 import { closeModal, modal } from '../../Component/Modal';
 import { API_URL } from '../../constant';
-import isXmas from '../../Component/Utils/isXmas2020'
+import { eventGoing } from '../../Component/Utils/isXmas2020'
 import React from 'react';
 import EventModal from '../../Component/Event';
 
 axios.defaults.withCredentials = true;
 
-const xmas = isXmas();
+const event = eventGoing();
 
 const config = {
   responseType: 'blob'
@@ -50,7 +50,7 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
           dispatch({ type: 'UPLOAD/SUCCESS' });
           toast('上傳成功');
           closeModal();
-          if (xmas) {
+          if (event) {
             modal(<EventModal />);
           }
         } else {

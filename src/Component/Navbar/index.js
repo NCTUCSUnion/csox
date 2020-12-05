@@ -44,7 +44,8 @@ const Navbar = () => {
     <Main>
       <ModalWrapper />
       <Banner />
-      {xmas && (isMobile ? <Gap /> : <XmasBanner />)}
+      {isMobile && <Gap />}
+      {xmas && !isMobile && <XmasBanner />}
       {!isAvailable
         ? isMobile
           ? <Login onClick={goToOauth} />

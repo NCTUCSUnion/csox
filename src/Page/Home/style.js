@@ -75,7 +75,7 @@ export const Guest = styled(Button)`
 export const XmasLogo = styled.div`
   ${props => props.theme.isMobile ?
   `
-    bottom: 10px;
+    bottom: 25px;
     right: 0px;
     height: 180px;
     width: 180px;

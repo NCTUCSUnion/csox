@@ -54,6 +54,10 @@ export const Dialog = styled.div`
   min-height: ${props => props.theme.isMobile ? '100%' : 'calc(100% - (0.5rem * 2))'};
   align-items: center;
   pointer-events: none;
+  flex-direction: column;
+  ${props => !props.theme.isMobile && `
+    justify-content: center;
+  `}
 
   @media (max-width: 576px) {
     width: 100%;
@@ -64,4 +68,14 @@ export const Dialog = styled.div`
 
 export const Background = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
+`;
+
+export const XmasBanner = styled.div`
+  ${props => props.theme.xmas && props.theme.isMobile && `
+    width: 100%;
+    height: 65px;
+    background-image: url(/banner.png);
+    background-repeat: repeat-x;
+    background-size: 50%;
+  `}
 `;
