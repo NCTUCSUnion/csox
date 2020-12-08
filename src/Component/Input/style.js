@@ -29,6 +29,7 @@ export const Input = styled.input`
   background: transparent;
   line-height: 18px;
   border-bottom: 1px solid ${props => props.theme.xmas ? 'rgb(160, 160, 160)' : '#757575'};
+  color: ${props => props.theme.xmas ? 'white' : 'black'};
 
   &:valid {
     border-bottom: 1px solid ${props => props.theme.colorPrimary};

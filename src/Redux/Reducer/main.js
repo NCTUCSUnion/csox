@@ -12,6 +12,8 @@ const parseType = type => {
   switch(type) {
   case 'midterm':
     return '期中考';
+  case 'midterm1':
+    return '第一次期中考';
   case 'midterm2':
     return '第二次期中考';
   case 'final':

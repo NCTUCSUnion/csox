@@ -40,7 +40,7 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
       data.append('type', type);
       data.append('course', course);
       data.append('instructor', instructor);
-      data.append('type', category);
+      data.append('category', category);
       data.append('uid', uid);
 
       dispatch({ type: 'UPLOAD/REQUEST' });
