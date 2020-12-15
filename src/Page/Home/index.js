@@ -15,18 +15,18 @@ const Home = () => {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <Title>
-        <EN>past exam papers</EN>
-        <ZH>交大資工考古題系統</ZH>
-      </Title>
       {
         xmas && 
         <>
-          <div id='snowBG' style={{ position: 'fixed', width: '100%', top: '0px', bottom: '20px', overflow: 'hidden' }}></div>
+          <div id='snowBG' style={{ position: 'fixed', width: '100%', top: '0px', left: '0px', bottom: '20px', overflow: 'hidden' }}></div>
           <SnowStorm flakesMax={50} flakesMaxActive={30} animationInterval={1}
             followMouse={false} vMaxY={1} vMaxX={1} excludeMobile={false} targetElement='snowBG' />
         </>
       }
+      <Title>
+        <EN>past exam papers</EN>
+        <ZH>交大資工考古題系統</ZH>
+      </Title>
       <ButtonWrapper>
         <Login onClick={goToOauth}>登入</Login>
         <Link to='/main'>
