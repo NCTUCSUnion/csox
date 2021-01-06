@@ -83,8 +83,8 @@ export const Action = styled.span`
 export const Form = styled.form`
   margin-top: ${props => props.theme.isMobile ? 65 : 25}px;
   z-index: -1;
-  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  background: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
 `;
 
 export const InputContainer = styled.div`
@@ -209,7 +209,7 @@ export const Loading = styled(LoadingComponent)`
 `;
 
 export const ThemeWrapper = styled.div`
-  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  background: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
   bottom: 0px;
 `;

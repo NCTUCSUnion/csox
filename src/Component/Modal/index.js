@@ -5,7 +5,7 @@
     Just simply use onClick={() => modal(<jsx/>)}
 */
 import React from 'react';
-import { Main, Content, Dialog, XmasBanner } from './style';
+import { Main, Content, Dialog } from './style';
 
 const getter = {
   func: [],
@@ -24,7 +24,6 @@ const Modal = ({ children }) => (
     <Content onClick={e => e.stopPropagation()}>
       {children}
     </Content>
-    <XmasBanner />
   </Dialog>
 );
 

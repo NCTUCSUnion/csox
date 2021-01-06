@@ -19,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
 
     & tbody tr {
-      color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
-      background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+      color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
+      background: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
       user-select: none;
       border-top: 1px solid rgba(91, 200, 165, .5);
       cursor: pointer;
@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
-    background-color: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+    background-color: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
   }
 
   div {

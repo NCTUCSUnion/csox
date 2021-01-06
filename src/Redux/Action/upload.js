@@ -1,14 +1,9 @@
 import axios from 'axios';
 import { toast } from '../../Component/Toast';
-import { closeModal, modal } from '../../Component/Modal';
+import { closeModal } from '../../Component/Modal';
 import { API_URL } from '../../constant';
-import { eventGoing } from '../../Component/Utils/isXmas2020'
-import React from 'react';
-import EventModal from '../../Component/Event';
 
 axios.defaults.withCredentials = true;
-
-const event = eventGoing();
 
 const config = {
   responseType: 'blob'
@@ -50,9 +45,6 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
           dispatch({ type: 'UPLOAD/SUCCESS' });
           toast('上傳成功');
           closeModal();
-          if (event) {
-            modal(<EventModal />);
-          }
         } else {
           dispatch({ type: 'UPLOAD/FAILED' });
           toast('上傳失敗', { type: 'Danger' });

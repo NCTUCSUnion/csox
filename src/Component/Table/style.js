@@ -52,7 +52,7 @@ export const Card = styled.div`
   background: #fff;
   z-index: 10;
   transition: margin-bottom 0.2s ease-in-out;
-  box-shadow: ${props => props.theme.xmas ? '0 0 0 15px rgb(65, 65, 65) inset' : '0 0 0'};
+  box-shadow: ${props => props.theme.dark ? '0 0 0 15px rgb(65, 65, 65) inset' : '0 0 0'};
 
   ${props => props.show && `
     margin-bottom: 50px;
@@ -65,8 +65,8 @@ export const Header = styled.div`
   align-items: center;
   font-size: 16px;
   height: 50px;
-  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  background: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
 `;
 
 export const Actions = styled.div`
@@ -74,12 +74,12 @@ export const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-right: 5px;
-  background: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+  background: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
 `;
 
 export const Download = styled(IoMdDownload)`
   ${actionMixin}
-  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
+  fill: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : '#444'};
 `;
 
 export const More = styled(MdExpandMore)`
@@ -89,7 +89,7 @@ export const More = styled(MdExpandMore)`
   `}
 
   ${actionMixin}
-  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
+  fill: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : '#444'};
 `;
 
 export const Meta = styled.div`
@@ -97,14 +97,14 @@ export const Meta = styled.div`
   z-index: 0;
   height: 50px;
   width: 100%;
-  background: ${props => props.theme.xmas ? 'rgb(120, 120, 120)' : '#fafafa'};
+  background: ${props => props.theme.dark ? 'rgb(120, 120, 120)' : '#fafafa'};
   padding: 10px 10px 10px 15px;
   font-size: 12px;
   font-weight: 500;
   text-align: left;
   color: #333;
   transition: bottom 0.2s ease-in-out;
-  box-shadow: ${props => props.theme.xmas ? '0 0 0 15px rgb(120, 120, 120) inset' : '0 0 0'};
+  box-shadow: ${props => props.theme.dark ? '0 0 0 15px rgb(120, 120, 120) inset' : '0 0 0'};
 
   bottom: -50px;
 `;
@@ -112,18 +112,18 @@ export const Meta = styled.div`
 export const Row = styled.div`
   margin-bottom: 5px;
   ${textMixin}
-  background: ${props => props.theme.xmas ? 'rgb(120, 120, 120)' : 'white'};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  background: ${props => props.theme.dark ? 'rgb(120, 120, 120)' : 'white'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
 `;
 
 export const File = styled(FaFileAlt)`
   margin-right: 3px;
-  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
+  fill: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : '#444'};
 `;
 
 export const Provider = styled(FaUserEdit)`
   margin-right: 3px;
-  fill: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#444'};
+  fill: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : '#444'};
 `;
 
 export const ChipWrapper = styled.div`
@@ -152,9 +152,9 @@ export const Loading = styled(LoadingComponent)`
 `;
 
 export const Paragraph = styled.p`
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
 `;
 
 export const TH = styled.th`
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'black'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
 `;

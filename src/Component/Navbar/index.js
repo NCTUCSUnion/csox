@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close, Login, XmasBanner, Gap } from './style';
+import { Navbar as Main, Item, Banner as BannerWrapper, Upload, Menu, Wrapper, Header, Close, Login, Gap } from './style';
 
 import { ModalWrapper, modal } from '../Modal';
 import UploadModal from '../Upload';
@@ -10,8 +10,6 @@ import { closeModal } from '../Modal';
 import IsMobileContext from '../../Theme/IsMobileContext';
 import { API_URL } from '../../constant';
 import { useSelector } from 'react-redux';
-import isXmas from '../../Component/Utils/isXmas2020'
-const xmas = isXmas();
 
 const goToOauth = () => {
   window.location.href = (`${API_URL}/login`);
@@ -45,7 +43,7 @@ const Navbar = () => {
       <ModalWrapper />
       <Banner />
       {isMobile && <Gap />}
-      {xmas && !isMobile && <XmasBanner />}
+      {!isMobile && <></>}
       {!isAvailable
         ? isMobile
           ? <Login onClick={goToOauth} />

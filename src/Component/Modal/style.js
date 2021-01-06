@@ -40,7 +40,7 @@ export const Content = styled.div`
   outline: 0;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14); /* youtube box-shadow setting */
   border-radius: ${props => props.theme.isMobile ? 0 : 5}px;
-  background-color: ${props => props.theme.xmas ? 'rgb(65, 65, 65)' : 'white'};
+  background-color: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
   background-clip: padding-box;
   animation: ${fadeInUp} .2s ease-in-out;
   height: fit-content;
@@ -68,14 +68,4 @@ export const Dialog = styled.div`
 
 export const Background = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
-`;
-
-export const XmasBanner = styled.div`
-  ${props => props.theme.xmas && props.theme.isMobile && `
-    width: 100%;
-    height: 65px;
-    background-image: url(/banner.png);
-    background-repeat: repeat-x;
-    background-size: 50%;
-  `}
 `;

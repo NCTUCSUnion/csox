@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Label = styled.label`
   top: 24px;
   left: 14px;
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : '#888'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : '#888'};
   position: absolute;
   font-size: 18px;
   transition: .2s;
@@ -28,8 +28,8 @@ export const Input = styled.input`
   font-size: 16px;
   background: transparent;
   line-height: 18px;
-  border-bottom: 1px solid ${props => props.theme.xmas ? 'rgb(160, 160, 160)' : '#757575'};
-  color: ${props => props.theme.xmas ? 'white' : 'black'};
+  border-bottom: 1px solid ${props => props.theme.dark ? 'rgb(160, 160, 160)' : '#757575'};
+  color: ${props => props.theme.dark ? 'white' : 'black'};
 
   &:valid {
     border-bottom: 1px solid ${props => props.theme.colorPrimary};

@@ -60,7 +60,7 @@ export const Item = styled.div`
     animation: ${shrinking} 5s;
     background: ${props => props.colors[0]};
   }
-  background: ${props => props.theme.xmas ? 'rgb(120, 120, 120)' : props.colors[1]};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : props.colors[0]};
+  background: ${props => props.theme.dark ? 'rgb(120, 120, 120)' : props.colors[1]};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : props.colors[0]};
 `;
 

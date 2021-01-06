@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MdBrightnessMedium } from 'react-icons/md';
 
 export const Title = styled.div`
   position: absolute;
@@ -18,7 +19,7 @@ export const Title = styled.div`
 
 export const EN = styled.div`
   display: ${props => props.theme.isMobile ? 'none': 'block'};
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
   font-size: 2rem;
   font-weight: 400;
   line-height: 30px;
@@ -26,8 +27,8 @@ export const EN = styled.div`
 `;
 
 export const ZH = styled.h1`
-  margin-left: ${props => props.theme.isMobile ? 0 : 30}px;
-  color: ${props => props.theme.xmas ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
+  ${props => !props.theme.isMobile && `margin-left: 30px;`}
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
   font-size: ${props => props.theme.isMobile ? '2rem' : '3.2rem'};
   font-weight: 500;
   line-height: 30px;
@@ -56,6 +57,7 @@ const Button = styled.div`
   box-shadow: ${props => props.theme.shadow};
   transition: 0.2s;
 `;
+
 export const Login = styled(Button)`
   background: ${props => props.theme.colorPrimary};
 
@@ -72,22 +74,75 @@ export const Guest = styled(Button)`
   }
 `;
 
-export const XmasLogo = styled.div`
-  ${props => props.theme.isMobile ?
-  `
-    bottom: 25px;
-    right: 0px;
-    height: 180px;
-    width: 180px;
-  ` : 
-  `
-    left: calc(10vw + 265px);
-    top: calc((100vh - 20px - 25vh) / 2 - 200px);
-    height: 256px;
-    width: 256px;
+export const ToggleTheme = styled.div`
+  height: 48px;
+  width: 140px;
+  display: flex;
+  position: fixed;
+  bottom: 32px;
+  border-radius: 1.4rem;
+  padding-left: 14px;
+  
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 48px;
+
+  color: #fff;
+  ${props => props.theme.dark ? `
+    background: #7C7C7C;
+    &:hover {
+      background: #606060;
+    }
+  ` : `
+    background: #555555;
+    &:hover {
+      background: #414141;
+    }
   `}
-  background-image: url(/xmas_logo_256.png);
-  background-size: 100%;
-  opacity: 0.5;
-  position: absolute;
+  box-shadow: ${props => props.theme.shadow};
+  transition: background 0.2s;
+
+  justify-content: start;
+  align-items: center;
+
+  ${props => props.theme.isMobile ? `
+    right: -20px;
+  ` : `
+    &:hover {
+      right: -20px;
+      transition-property: right;
+      transition-duration: 0.3s;
+    }
+    &:not(:hover) {
+      right: -80px;
+      transition-property: right;
+      transition-duration: 0.3s;
+      transition-delay: 0.5s;
+    }
+    &:hover > span {
+      opacity: 1.0;
+      transition-property: opacity;
+      transition-duration: 0.1s;
+      transition-delay: 0.1s;
+    }
+    &:not(:hover) > span {
+      opacity: 0.0;
+      transition-property: opacity;
+      transition-duration: 0.1s;
+      transition-delay: 0.4s;
+    }
+  `}
+`;
+
+export const ToggleIcon = styled(MdBrightnessMedium)`
+  display: flex;
+  height: 24px;
+  width: 24px;
+  margin-right: 2px;
+`;
+
+export const ToggleText = styled.span`
+  margin-left: 4px;
 `;

@@ -5,9 +5,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import reducer from './Redux/Reducer';
-import { ThemeProvider } from 'styled-components';
-import theme from './Theme/default';
-import GlobalStyle from './Theme/globalStyle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import IsMobileContext from './Theme/IsMobileContext';
@@ -22,12 +19,9 @@ const isMobile = isMobileChecker();
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={{ ...theme, isMobile }}>
-      <GlobalStyle />
-      <IsMobileContext.Provider value={isMobile}>
-        <Router />
-      </IsMobileContext.Provider>
-    </ThemeProvider>
+    <IsMobileContext.Provider value={isMobile}>
+      <Router isMobile={isMobile}/>
+    </IsMobileContext.Provider>
   </Provider>
   , document.getElementById('root')
 );
