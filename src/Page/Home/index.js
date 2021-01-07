@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Title, EN, ZH, Login, ButtonWrapper, Guest, ToggleTheme, ToggleIcon, ToggleText } from './style';
+import { Title, EN, ZH, Login, ButtonWrapper, Guest, ToggleTheme, ToggleIcon } from './style';
 import { API_URL } from '../../constant';
 
 const Home = ({ dark, toggleDark }) => {
@@ -22,7 +22,7 @@ const Home = ({ dark, toggleDark }) => {
       </ButtonWrapper>
       <ToggleTheme onClick={toggleDark}>
         <ToggleIcon />
-        <ToggleText>{dark ? '淺色' : '深色'}主題</ToggleText>
+        <span>{dark ? '淺色' : '深色'}主題</span>
       </ToggleTheme>
     </div>
   );

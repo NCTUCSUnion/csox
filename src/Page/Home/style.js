@@ -84,12 +84,16 @@ export const ToggleTheme = styled.div`
   padding-left: 14px;
   
   cursor: pointer;
+  color: #fff;
   text-align: center;
   font-weight: 500;
   font-size: 16px;
   line-height: 48px;
+  user-select: none;
 
-  color: #fff;
+  justify-content: start;
+  align-items: center;
+
   ${props => props.theme.dark ? `
     background: #7C7C7C;
     &:hover {
@@ -101,37 +105,33 @@ export const ToggleTheme = styled.div`
       background: #414141;
     }
   `}
-  box-shadow: ${props => props.theme.shadow};
-  transition: background 0.2s;
-
-  justify-content: start;
-  align-items: center;
 
   ${props => props.theme.isMobile ? `
     right: -20px;
   ` : `
     &:hover {
       right: -20px;
-      transition-property: right;
-      transition-duration: 0.3s;
+      transition: right 0.3s, background 0.2s;
     }
     &:not(:hover) {
       right: -80px;
-      transition-property: right;
-      transition-duration: 0.3s;
-      transition-delay: 0.5s;
+      transition: right 0.3s ease 0.5s, background 0.2s;
     }
     &:hover > span {
       opacity: 1.0;
-      transition-property: opacity;
-      transition-duration: 0.1s;
-      transition-delay: 0.1s;
+      transition: opacity 0.1s;
     }
     &:not(:hover) > span {
       opacity: 0.0;
-      transition-property: opacity;
-      transition-duration: 0.1s;
-      transition-delay: 0.4s;
+      transition: opacity 0.1s ease 0.4s;
+    }
+    &:hover > svg {
+      transform: rotate(-180deg);
+      transition: transform 0.5s;
+    }
+    &:not(:hover) > svg {
+      transform: rotate(0deg);
+      transition: transform 0.5s;
     }
   `}
 `;
@@ -140,9 +140,5 @@ export const ToggleIcon = styled(MdBrightnessMedium)`
   display: flex;
   height: 24px;
   width: 24px;
-  margin-right: 2px;
-`;
-
-export const ToggleText = styled.span`
-  margin-left: 4px;
+  margin-right: 6px;
 `;
