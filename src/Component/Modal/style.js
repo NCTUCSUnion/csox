@@ -36,18 +36,19 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 50vh;
+  min-height: ${props => props.size === 'sm' ? '30vh' : (props.size === 'md' ? '40vh' : '50vh')};
   outline: 0;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14); /* youtube box-shadow setting */
   border-radius: ${props => props.theme.isMobile ? 0 : 5}px;
   background-color: ${props => props.theme.dark ? 'rgb(65, 65, 65)' : 'white'};
+  color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'black'};
   background-clip: padding-box;
   animation: ${fadeInUp} .2s ease-in-out;
   height: fit-content;
 `;
 
 export const Dialog = styled.div`
-  width: 80%;
+  width: ${props => props.size === 'sm' ? '40%' : (props.size === 'md' ? '60%' : '80%')};
   margin: 0.5rem auto;
   display: flex;
   position: relative;

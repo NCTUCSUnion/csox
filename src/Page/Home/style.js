@@ -18,7 +18,7 @@ export const Title = styled.div`
 `;
 
 export const EN = styled.div`
-  display: ${props => props.theme.isMobile ? 'none': 'block'};
+  display: ${props => props.theme.isMobile ? 'none' : 'block'};
   color: ${props => props.theme.dark ? 'rgb(225, 225, 225)' : 'rgb(83, 83, 83)'};
   font-size: 2rem;
   font-weight: 400;
@@ -53,6 +53,7 @@ const Button = styled.div`
   margin-bottom: 15px;
   width: ${props => props.theme.isMobile ? '80vw' : '150px'};
   height: 45px;
+  line-height: 45px;
   border-radius: 2px;
   box-shadow: ${props => props.theme.shadow};
   transition: 0.2s;
@@ -141,4 +142,45 @@ export const ToggleIcon = styled(MdBrightnessMedium)`
   height: 24px;
   width: 24px;
   margin-right: 6px;
+`;
+
+export const Header = styled.div`
+  ${props => props.theme.isMobile && `
+    position: fixed;
+    width: 100%;
+  `}
+  display: flex;
+  align-items: center;
+  color: white;
+  height: initial;
+  padding: 15px 30px;
+  font-size: 20px;
+  text-align: left;
+  font-weight: 500;
+  background: ${props => props.theme.colorPrimary};
+  box-shadow: ${props => props.theme.shadow};
+`;
+
+export const Content = styled.div`
+    width: 100%;
+    text-align: center;
+
+    ${props => props.theme.isMobile ? `
+      padding: 60px 30px 10px;
+    `: `
+      padding: 20px 30px;
+    `}
+    bottom: 0;
+`;
+
+export const ModalConfirm = styled(Button)`
+  background: #718096;
+
+  &:hover {
+    background: #4A5568;
+  }
+
+  width: ${props => props.theme.isMobile ? '80vw' : '150px'};
+  margin: 30px auto;
+  color: white;
 `;

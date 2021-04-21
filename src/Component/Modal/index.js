@@ -19,9 +19,9 @@ const getter = {
   }
 };
 
-const Modal = ({ children }) => (
-  <Dialog>
-    <Content onClick={e => e.stopPropagation()}>
+const Modal = ({ children, size }) => (
+  <Dialog size={size}>
+    <Content onClick={e => e.stopPropagation()} size={size}>
       {children}
     </Content>
   </Dialog>
@@ -58,7 +58,7 @@ class ModalWrapper extends React.Component {
     return (
       <Main open={this.state.open} onClick={this.removeModal}>
         {this.state.open &&
-          <Modal>
+          <Modal size={this.props.size}>
             {this.state.modal}
           </Modal>}
       </Main>
