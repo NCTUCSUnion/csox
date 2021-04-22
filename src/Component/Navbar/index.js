@@ -10,9 +10,13 @@ import { closeModal } from '../Modal';
 import IsMobileContext from '../../Theme/IsMobileContext';
 import { API_URL } from '../../constant';
 import { useSelector } from 'react-redux';
+import OAuthModal from '../../Component/Event/oauth';
 
-const goToOauth = () => {
-  window.location.href = (`${API_URL}/login`);
+const onLogin = () => {
+  if ((new Date() >= new Date(2021, 6, 15)) || (window.localStorage && window.localStorage.hasOwnProperty('new_oauth_notified')))
+    window.location.href = (`${API_URL}/login`);
+  else
+    modal(<OAuthModal />);
 };
 
 const Banner = () => {
@@ -43,11 +47,10 @@ const Navbar = () => {
       <ModalWrapper />
       <Banner />
       {isMobile && <Gap />}
-      {!isMobile && <></>}
       {!isAvailable
         ? isMobile
-          ? <Login onClick={goToOauth} />
-          : <Item onClick={goToOauth}>登入</Item>
+          ? <Login onClick={onLogin} />
+          : <Item onClick={onLogin}>登入</Item>
         : isMobile
           ? <Upload onClick={() => modal(<UploadModal />)} />
           : <Item onClick={() => modal(<UploadModal />)}>上傳</Item>

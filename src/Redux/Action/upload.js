@@ -2,6 +2,7 @@ import axios from 'axios';
 import { toast } from '../../Component/Toast';
 import { closeModal } from '../../Component/Modal';
 import { API_URL } from '../../constant';
+import event from '../../Component/Event'
 
 axios.defaults.withCredentials = true;
 
@@ -45,6 +46,7 @@ export const uploadFile = ({ file, semester, type, course, instructor, category 
           dispatch({ type: 'UPLOAD/SUCCESS' });
           toast('上傳成功');
           closeModal();
+          event();
         } else {
           dispatch({ type: 'UPLOAD/FAILED' });
           toast('上傳失敗', { type: 'Danger' });
