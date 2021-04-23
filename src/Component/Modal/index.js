@@ -55,7 +55,6 @@ class ModalWrapper extends React.Component {
     this.setState({ open: false });
   }
   render () {
-    console.log(this.state.modal)
     return (
       <Main open={this.state.open} onClick={this.removeModal}>
         {this.state.open &&

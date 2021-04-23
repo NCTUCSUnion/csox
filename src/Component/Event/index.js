@@ -36,6 +36,6 @@ const EventModal = () => {
 };
 
 export default () => {
-  if (new Date() <= new Date(2021, 4, 10))
+  if (new Date() < new Date(2021, 4, 17))
     modal(<EventModal size='sm' />)
 }
