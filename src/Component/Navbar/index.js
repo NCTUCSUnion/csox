@@ -16,7 +16,7 @@ const onLogin = () => {
   if ((new Date() >= new Date(2021, 6, 15)) || (window.localStorage && window.localStorage.hasOwnProperty('new_oauth_notified')))
     window.location.href = (`${API_URL}/login`);
   else
-    modal(<OAuthModal />);
+    modal(<OAuthModal size='sm' />);
 };
 
 const Banner = () => {

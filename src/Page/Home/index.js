@@ -10,12 +10,12 @@ const Home = ({ dark, toggleDark }) => {
     if ((new Date() >= new Date(2021, 6, 15)) || (window.localStorage && window.localStorage.hasOwnProperty('new_oauth_notified')))
       window.location.href = (`${API_URL}/login`);
     else
-      modal(<OAuthModal />);
+      modal(<OAuthModal size='sm' />);
   };
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <ModalWrapper size='sm' />
+      <ModalWrapper />
       <Title>
         <EN>past exam papers</EN>
         <ZH>交大資工考古題系統</ZH>
